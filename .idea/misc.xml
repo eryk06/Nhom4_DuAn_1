@@ -9,13 +9,15 @@
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.1635" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1635" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_account.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_bill.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart.xml" value="0.18" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart2.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_hi.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_name.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_welcome.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/menu/bottom_nav.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
