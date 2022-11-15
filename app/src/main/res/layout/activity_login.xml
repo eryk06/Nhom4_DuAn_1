@@ -21,8 +21,10 @@
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="380dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="52dp"
+        android:paddingStart="10dp"
+        android:background="@drawable/btn_oders_2"
         android:ems="10"
         android:hint="+1 (201) 555-0123"
         android:inputType="textPersonName"

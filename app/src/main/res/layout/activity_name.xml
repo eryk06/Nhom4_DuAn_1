@@ -34,10 +34,12 @@
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="380dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="44dp"
+        android:paddingLeft="20dp"
         android:ems="10"
         android:hint="Enter first name"
+        android:background="@drawable/btn_oders_2"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.322"
@@ -47,10 +49,13 @@
     <EditText
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="380dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="120dp"
         android:ems="10"
         android:hint="Enter last name"
+        android:paddingLeft="20dp"
+
+        android:background="@drawable/btn_oders_2"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.322"
@@ -69,5 +74,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.934"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
