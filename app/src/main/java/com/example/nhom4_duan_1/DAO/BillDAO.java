@@ -1,9 +1,7 @@
 package com.example.nhom4_duan_1.DAO;
 
 import android.util.Log;
-
 import androidx.annotation.NonNull;
-
 import com.example.nhom4_duan_1.models.Bills;
 import com.example.nhom4_duan_1.models.Products;
 import com.example.nhom4_duan_1.models.Users;
