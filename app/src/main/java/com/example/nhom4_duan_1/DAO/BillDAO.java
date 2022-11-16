@@ -1,6 +1,5 @@
 package com.example.nhom4_duan_1.DAO;
 
-import android.database.Cursor;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
