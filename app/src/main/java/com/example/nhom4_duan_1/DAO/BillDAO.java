@@ -15,6 +15,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 public class BillDAO {
+    //Hihi Mình là Dũng 2K3
     public ArrayList<Bills> GetAllDSBill(){
         ArrayList<Bills> list = new ArrayList<>();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
