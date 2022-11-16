@@ -9,7 +9,6 @@ import com.example.nhom4_duan_1.models.Vouchers;
 import java.util.ArrayList;
 
 public class BillDAO {
-    //Hihi Mình là Dũng 2K3
     public ArrayList<Bills> GetAllDSBill(){
         ArrayList<Bills> list = new ArrayList<>();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
