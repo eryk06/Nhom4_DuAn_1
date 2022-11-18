@@ -96,9 +96,9 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName7"
-            android:layout_width="340dp"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-20dp"
+            android:layout_marginStart="-2dp"
             android:layout_marginTop="26dp"
             android:background="@drawable/btn_bg"
             android:hint="Food,groceries,drinks,..."
@@ -112,7 +112,7 @@
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-165dp"
+            android:layout_marginStart="-175dp"
             android:layout_marginTop="-32dp"
             android:src="@drawable/loupe"/>
 
