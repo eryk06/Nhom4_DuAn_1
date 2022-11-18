@@ -1,206 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".views.AdressInfoActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="-33dp"
+            android:text="Address info"
+            android:textSize="20sp"
+            android:textColor="#000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Address info"
-        android:textSize="20sp"
-        android:textColor="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
-        app:layout_constraintStart_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_1" />
 
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
-        app:srcCompat="@drawable/image_1" />
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="145 W 47th St, New York, NY10036, US"
+            android:textColor="#000"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="145 W 47th St, New York, NY10036, US"
-        android:textColor="#000"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+        <EditText
+            android:id="@+id/editTextTextPersonName9"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="Apt / Suite / Floor"
+            android:inputType="textPersonName"
+            android:background="@drawable/btn_oders_2" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName9"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:paddingLeft="8dp"
-        android:ems="10"
-        android:hint="Apt / Suite / Floor"
-        android:inputType="textPersonName"
-        android:background="@drawable/btn_oders_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+        <EditText
+            android:id="@+id/editTextTextPersonName10"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:layout_gravity="center"
+            android:inputType="textPersonName"
+            android:paddingLeft="8dp"
+            android:background="@drawable/btn_oders_2"
+            android:hint="Business or building name" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName10"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:paddingLeft="8dp"
-        android:background="@drawable/btn_oders_2"
-        android:hint="Business or building name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Delivery options"
+            android:textColor="#000"
+            android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Delivery options"
-        android:textSize="30sp"
-        android:textColor="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName10" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="120dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/btn_oders"
-        android:paddingLeft="40dp"
-        android:text="Leave at door"
-        android:textColor="#000"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/door" />
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="120dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/btn_oders_4"
-        android:paddingLeft="40dp"
-        android:text="Meet at door"
-        android:textSize="15sp"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.296"
-        app:layout_constraintStart_toEndOf="@+id/textView26"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/btn_oders"
+                android:paddingLeft="15dp"
+                android:text="Leave at door"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:gravity="center"/>
 
-    <ImageView
-        android:id="@+id/imageView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="304dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/businessman" />
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="-33dp"
+                android:src="@drawable/door" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName11"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="88dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:background="@drawable/btn_oders_2"
-        android:paddingLeft="8dp"
-        android:hint="Add instructions"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Address label"
-        android:textColor="#000"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="534dp" />
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName12"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:background="@drawable/btn_oders_2"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Add a label (ex.school)"
-        android:paddingLeft="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_oders_4"
+                android:text="Meet at door"
+                android:paddingLeft="15dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="#fff" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:text="Save and continue"
-        android:backgroundTint="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName12" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="-33dp"
+                android:src="@drawable/businessman" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName11"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:background="@drawable/btn_oders_2"
+            android:paddingLeft="8dp"
+            android:hint="Add instructions" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:text="Address label"
+            android:textColor="#000"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName12"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_oders_2"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Add a label (ex.school)"
+            android:paddingLeft="8dp"/>
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="330dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="35dp"
+            android:layout_gravity="center"
+            android:text="Save and continue"
+            android:backgroundTint="#000" />
+
+    </LinearLayout>
+
+</LinearLayout>

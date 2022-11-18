@@ -8,20 +8,24 @@
     tools:context=".views.BillActivity">
 
     <ImageView
-        android:layout_marginVertical="20dp"
-        android:layout_marginStart="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/x"/>
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:src="@drawable/image"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,14 +33,12 @@
             android:text="Total"
             android:textSize="35sp"
             android:textColor="#000"
-            android:layout_marginVertical="10dp"
             android:layout_marginStart="20dp"
             android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
             android:text="100.000đ"
             android:textColor="#000"
             android:textSize="25sp"
@@ -46,7 +48,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="50dp"
@@ -79,43 +83,53 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Subtotal"
-            android:textColor="#000"
-            android:layout_marginVertical="30dp"
-            android:layout_marginStart="18dp"
-            android:textSize="20sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="90.000đ"
-            android:layout_marginVertical="30dp"
-            android:layout_marginStart="190dp"
-            android:textSize="20sp"
-            android:textColor="#000"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:text="Subtotal"
+                android:textColor="#000"
+                android:textSize="20sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Delivery Fee"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:layout_marginVertical="60dp"
-            android:layout_marginStart="-340dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="90.000đ"
+                android:layout_marginStart="190dp"
+                android:textSize="20sp"
+                android:textColor="#000"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10.000đ"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:layout_marginStart="158dp"
-            android:layout_marginVertical="60dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery Fee"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10.000đ"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginStart="155dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
