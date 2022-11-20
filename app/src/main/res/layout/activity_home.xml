@@ -1,204 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".views.HomeActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="26dp"
-            android:text="Delivery"
-            android:textSize="25sp"
-            android:textColor="@color/black"/>
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="26dp"
-            android:text="Pickup"
-            android:textSize="25sp"
-            android:textColor="@color/black"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:gravity="center">
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dine-in"
-            android:textSize="25sp"
-            android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_weight="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TanChanhHiep,Q12,HCM"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"/>
 
-    </LinearLayout>
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/user"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="15dp"
-        android:gravity="center">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-30dp"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/triangle"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/btn_oders_3"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/location" />
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_weight="5"
+                        android:layout_width="380dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:text="Is this the right address? It looks a little far from you."
+                        android:textSize="20sp"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:background="@drawable/btn_bg"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_weight="2.3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/loupe"/>
+                <EditText
+                    android:id="@+id/editTextTextPersonName7"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Food,groceries,drinks,..."/>
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_weight="2.3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sort1" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="13dp"
+                android:background="@drawable/btn_oders" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/btn_oders" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/btn_oders" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/btn_oders" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Now - 200 W 47th St"
-                android:textSize="25sp"
-                android:textColor="@color/black"/>
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="-76dp">
 
             <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/ic_baseline_arrow" />
+                android:id="@+id/imageView13"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="11dp"
+                android:src="@drawable/food"/>
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="28dp"
+                android:src="@drawable/drink"/>
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/snacks"/>
+
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="28dp"
+                android:src="@drawable/seeall"/>
 
         </LinearLayout>
 
 
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="380dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btn_oders_3"
-            android:paddingStart="60dp"
-            android:text="Is this the right address? It looks a little far from you."
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
-
-        <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-165dp"
-            android:layout_marginTop="-50dp"
-            android:src="@drawable/location" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName7"
-            android:layout_width="400dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-2dp"
-            android:layout_marginTop="26dp"
-            android:background="@drawable/btn_bg"
-            android:hint="Food,groceries,drinks,..."
-            android:inputType="textPersonName"
-            android:paddingLeft="60dp"
-            android:paddingTop="5dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="10dp" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-175dp"
-            android:layout_marginTop="-32dp"
-            android:src="@drawable/loupe"/>
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="170dp"
-            android:layout_marginTop="-28dp"
-            android:src="@drawable/sort1" />
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp">
+        </ListView>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="13dp"
-            android:background="@drawable/btn_oders" />
-
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/btn_oders" />
-
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/btn_oders" />
-
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/btn_oders" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="-76dp">
-
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="11dp"
-            android:src="@drawable/food"/>
-
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="28dp"
-            android:src="@drawable/drink"/>
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="24dp"
-            android:src="@drawable/snacks"/>
-
-        <ImageView
-            android:id="@+id/imageView16"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="28dp"
-            android:src="@drawable/seeall"/>
-
-    </LinearLayout>
-
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp"/>
-
-</LinearLayout>
+        android:layout_gravity="end|bottom"
+        android:backgroundTint="@color/gray"
+        android:layout_margin="20dp"
+        android:src="@drawable/cart"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

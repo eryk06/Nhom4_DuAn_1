@@ -38,60 +38,6 @@
         android:layout_gravity="center"
         android:backgroundTint="#000"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textview3"
-            android:layout_width="380dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="112dp"
-            android:background="#D9D9D9"
-            android:gravity="center"
-            android:paddingLeft="16dp"
-            android:text="CONTINUE WITH GOOGLE"
-            android:textSize="20dp"
-            android:textColor="#000"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textview4"
-            android:layout_width="380dp"
-            android:layout_height="45dp"
-            android:background="#D9D9D9"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingLeft="39dp"
-            android:layout_marginTop="20dp"
-            android:textColor="#000"
-            android:text="CONTINUE WITH FACEBOOK"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="-122dp"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/google"/>
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="35dp"
-                android:src="@drawable/facebook"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
+<!--    dùng aip của gg/facebook là có nút hết-->
 
 </LinearLayout>
