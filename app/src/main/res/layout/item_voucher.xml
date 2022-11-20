@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="10dp"
+            android:layout_height="70dp"
+            android:text=" "
+            android:background="@drawable/rectangle_2"/>
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="Khao cuối tuần"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:background="@drawable/item_voucher_1"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:background="@drawable/item_voucher_2"
+            android:text="Choose"
+            android:textColor="#fff"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+</LinearLayout>

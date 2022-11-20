@@ -3,28 +3,56 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable-v24/btn_bg.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable-v24/btn_oders_2.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable-v24/btn_oders_3.xml" value="0.1505" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable-v24/btn_oders_5.xml" value="0.1505" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable-v24/btn_oders_6.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1635" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/btn_oders.xml" value="0.1635" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/btn_oders_4.xml" value="0.1505" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/btn_oders_7.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/btn_soluong.xml" value="0.1635" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/circle.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/edit.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/ic_baseline_arrow.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.1635" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1635" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/item_voucher_1.xml" value="0.1505" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/item_voucher_2.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/triangle.xml" value="0.1505" />
-        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_account.xml" value="0.22" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_account.xml" value="0.25" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_adress.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_adress_info.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_bill.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart.xml" value="0.18" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart2.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart_without_products.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_hi.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_login_email.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_login_phone.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_name.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_oders.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_password.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_payment.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_product.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_termsvs_privacy.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_users.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_voucher.xml" value="0.203125" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_welcome.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/custom_adapter_cart.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/custom_adapter_vouchers.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/custom_recyc_product.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/dialog_filter.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/dialog_success.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/include_bill.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/item_bill.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/item_product.xml" value="0.22" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/item_product_cart.xml" value="0.25" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/item_voucher.xml" value="0.2" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/menu/bottom_nav.xml" value="0.20416666666666666" />
       </map>
     </option>

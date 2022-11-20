@@ -38,39 +38,11 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="70dp"
-            android:text="Khao cuối tuần"
-            android:layout_marginStart="40dp"
-            android:paddingTop="15dp"
-            android:paddingLeft="20dp"
-            android:textSize="24sp"
-            android:textColor="#000000"
-            android:background="@drawable/btn_oders_2"/>
-
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="70dp"
-            android:text="Choose"
-            android:textColor="#fff"
-            android:paddingStart="5dp"
-            android:paddingBottom="-20dp"
-            android:layout_marginTop="-24dp"
-            android:textSize="15sp"
-            android:background="@drawable/btn_oders"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:src="@drawable/rectangle_2"
-            android:layout_marginStart="-365dp"/>
-
-    </LinearLayout>
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:scrollbars="none"/>
 
 </LinearLayout>
