@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".views.CartActivity">
+    tools:context=".views.CartWithoutProductsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,48 +27,67 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Carts"
-            android:textStyle="bold"
-            android:textSize="35sp"
-            android:textColor="#000000"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"/>
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="330dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+ Add voucher"
+            android:text="Carts"
+            android:textSize="35sp"
             android:textColor="#000000"
-            android:textSize="24sp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"/>
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="50dp">
 
-        <include
-            layout="@layout/include_bill" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/cart"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add items to start a cart"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Once you add items from a restaurant or store , your cart will appear here."
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="Start Shopping"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="90dp"
+        android:textSize="20sp"
+        android:backgroundTint="#000000"/>
 
 </LinearLayout>

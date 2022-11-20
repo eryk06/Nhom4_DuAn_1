@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/matcha"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matcha đá xay"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 item - 50.000đ"
+            android:layout_marginTop="68dp"
+            android:textSize="20dp"
+            android:layout_marginStart="-135dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xred"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="70dp"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line"
+            android:layout_marginStart="-280dp"
+            android:layout_marginTop="140dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/garan"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matcha đá xay"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 item - 50.000đ"
+            android:layout_marginTop="68dp"
+            android:textSize="20dp"
+            android:layout_marginStart="-135dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xred"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="70dp"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line"
+            android:layout_marginStart="-280dp"
+            android:layout_marginTop="140dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/burger"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matcha đá xay"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 item - 50.000đ"
+            android:layout_marginTop="68dp"
+            android:textSize="20dp"
+            android:layout_marginStart="-135dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xred"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="70dp"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line_black"
+            android:backgroundTint="#000000"
+            android:layout_marginStart="-350dp"
+            android:layout_marginTop="180dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
