@@ -34,7 +34,7 @@ public class UsersActivity extends AppCompatActivity {
         llVouchers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UsersActivity.this, OderActivity.class);
+                Intent intent = new Intent(UsersActivity.this, VoucherActivity.class);
                 startActivity(intent);
             }
         });
