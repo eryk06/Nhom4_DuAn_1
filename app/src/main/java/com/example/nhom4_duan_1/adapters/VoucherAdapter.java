@@ -51,10 +51,7 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.ViewHold
         public ViewHolder(@NonNull View itemView){
             super(itemView);
 
-            tvTime = itemView.findViewById(R.id.tvTime);
-            tvPrice = itemView.findViewById(R.id.tvPrice);
-            tvAmount = itemView.findViewById(R.id.tvAmount);
-            tvRepurchase = itemView.findViewById(R.id.tvRepurchase);
+            //jihuihuihuuihui
         }
     }
 }
