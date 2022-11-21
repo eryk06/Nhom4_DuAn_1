@@ -19,10 +19,12 @@ import android.widget.Toast;
 import com.example.nhom4_duan_1.adapters.ProductAdapter;
 import com.example.nhom4_duan_1.managers.Manager;
 import com.example.nhom4_duan_1.models.Products;
+import com.example.nhom4_duan_1.views.CartActivity;
 import com.example.nhom4_duan_1.views.ProductActivity;
 import com.example.nhom4_duan_1.views.UsersActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     AlertDialog alertDialog;
     EditText edtSeach;
     ArrayList<Products> list;
+    FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
         ImageView ivUser = (ImageView) findViewById(R.id.ivUser);
         ImageView ivSearch = findViewById(R.id.ivSearch);
         edtSeach = findViewById(R.id.edtSearch);
+        floatingActionButton = findViewById(R.id.fltCart);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
 
         list = new ArrayList<>();
 

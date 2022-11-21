@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.adapters.CartAdapter;
@@ -32,6 +34,13 @@ public class CartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
 
         recyclerCart = (RecyclerView) findViewById(R.id.recyclerCart);
+        ImageView ivBackCart = findViewById(R.id.ivBackCart);
+        ivBackCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         getData();

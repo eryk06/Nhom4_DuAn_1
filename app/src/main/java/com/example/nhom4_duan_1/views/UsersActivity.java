@@ -16,7 +16,7 @@ import com.example.nhom4_duan_1.models.Vouchers;
 
 public class UsersActivity extends AppCompatActivity {
     LinearLayout llMO, llVouchers, llPM, llTP;
-    ImageView ivUser;
+    ImageView ivUser , ivBackUser;
     private final int GALLERY_REQ_CODE = 1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,14 @@ public class UsersActivity extends AppCompatActivity {
         llPM = (LinearLayout) findViewById(R.id.llPM);
         llTP = (LinearLayout) findViewById(R.id.llTP);
         ivUser = (ImageView) findViewById(R.id.ivUser);
+        ivBackUser = findViewById(R.id.ivBackUser);
+
+        ivUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         ivUser.setOnClickListener(new View.OnClickListener() {
             @Override

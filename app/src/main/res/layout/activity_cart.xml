@@ -18,6 +18,7 @@
             android:background="@drawable/btn_oders_2"/>
 
         <ImageView
+            android:id="@+id/ivBackCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-45dp"
@@ -50,8 +51,9 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerCart"
-                android:layout_width="373dp"
-                android:layout_height="330dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
