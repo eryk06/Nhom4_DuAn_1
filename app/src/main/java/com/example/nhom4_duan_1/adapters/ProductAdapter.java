@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,9 +47,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 .fit()
                 .into(holder.ivSP);
 
+        Products products = list.get(position);
+
+        holder.linearItemProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getProduct(products);
+            }
+        });
+
     }
 
-
+    public void getProduct(Products products){
+        System.out.println(products);
+    }
 
     @Override
     public int getItemCount() {
@@ -58,9 +70,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView ivSP;
         TextView tvName;
+        LinearLayout linearItemProduct;
         public ViewHolder(@NonNull View itemView){
             super(itemView);
-            
+            linearItemProduct = itemView.findViewById(R.id.linearItemProduct);
             ivSP = itemView.findViewById(R.id.ivSP);
             tvName = itemView.findViewById(R.id.tvName);
         }
