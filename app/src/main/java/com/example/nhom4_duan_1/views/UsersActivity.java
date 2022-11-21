@@ -39,5 +39,12 @@ public class UsersActivity extends AppCompatActivity {
             }
         });
 
+        llPM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UsersActivity.this, PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
