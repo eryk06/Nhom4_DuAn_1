@@ -45,83 +45,141 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Credit or debit card"
-            android:textSize="28sp"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Visa, Mastercard, Amex, and JCB"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:layout_marginStart="85dp"/>
+        android:layout_marginTop="25dp"
+        android:padding="6dp">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/card"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-300dp"
-            android:layout_marginTop="90dp"
-            android:src="@drawable/line_black"/>
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="5dp"
+                android:text="Credit or debit card"
+                android:textSize="28sp"
+                android:textColor="#000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="5dp"
+                android:text="Visa, Mastercard, Amex, and JCB"
+                android:textSize="20sp"
+                android:textColor="#000" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="-140dp"
-        android:src="@drawable/card"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Momo E-Wallet"
-            android:textSize="28sp"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="36dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-280dp"
-            android:layout_marginTop="100dp"
-            android:src="@drawable/line_black_23"/>
-
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="-70dp"
-        android:src="@drawable/momo"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:src="@drawable/line_black"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
+        android:layout_marginTop="10dp"
+        android:padding="6dp">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/momo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="5dp"
+            android:text="Momo E-Wallet"
+            android:textSize="28sp"
+            android:textColor="#000"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:src="@drawable/line_black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/cash"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="5dp"
+                android:text="Cash"
+                android:textSize="28sp"
+                android:textColor="#000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="5dp"
+                android:text="Avoid hassle by keeping the exact amount ready"
+                android:textSize="20sp"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="60dp"
+        android:layout_gravity="center"
+        android:src="@drawable/line_black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="30dp"
             android:text="Other payment method(s)"
             android:textColor="#000"
             android:textSize="28sp"
@@ -138,36 +196,11 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cash"
-            android:textSize="28sp"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:layout_marginStart="85dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Avoid hassle by keeping the exact amount ready"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:layout_marginStart="85dp" />
-
-    </LinearLayout>
-
     <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="-66dp"
-        android:src="@drawable/cash"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:src="@drawable/line_black_23"/>
 
 </LinearLayout>

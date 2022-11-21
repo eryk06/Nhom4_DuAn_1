@@ -12,14 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.models.Bills;
+import com.example.nhom4_duan_1.models.Cart;
 
 import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
     private Context context;
-    private ArrayList<Bills> list;
+    private ArrayList<Cart> list;
 
-    public CartAdapter(Context context, ArrayList<Bills> list) {
+    public CartAdapter(Context context, ArrayList<Cart> list) {
         this.context = context;
         this.list = list;
     }
