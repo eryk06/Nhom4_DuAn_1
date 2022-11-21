@@ -7,12 +7,12 @@
     android:orientation="vertical"
     tools:context=".views.DetailProductActivity">
     <LinearLayout
-        android:layout_weight="9.5"
+        android:layout_weight="8.8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:background="@drawable/btn_oders_2"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
         android:orientation="vertical">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="290dp"
             android:id="@+id/ivDetailProduct"
             android:src="@drawable/image"/>
         <TextView
@@ -65,6 +65,7 @@
                 android:layout_height="match_parent"
                 android:gravity="end">
                 <TextView
+                    android:id="@+id/tvMinus"
                     android:layout_width="70dp"
                     android:layout_height="match_parent"
                     android:text="-"
@@ -75,6 +76,7 @@
                     android:textStyle="bold"/>
             </LinearLayout>
             <EditText
+                android:id="@+id/edtAmount"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,6 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/tvPlus"
                     android:layout_width="70dp"
                     android:gravity="center"
                     android:layout_height="match_parent"
@@ -103,12 +106,38 @@
 
     </LinearLayout>
 
+
     <LinearLayout
-        android:layout_weight="9"
+        android:layout_weight="8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:text="Total :"/>
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_weight="1"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:gravity="end"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20000đ"/>
+        </LinearLayout>
         <TextView
+            android:id="@+id/tvAddToCart"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="ADD TO CART"
