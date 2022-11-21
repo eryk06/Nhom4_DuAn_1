@@ -105,14 +105,14 @@
                     android:src="@drawable/sort1" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName7"
+                    android:id="@+id/edtSearch"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Food, groceries, drinks,..."/>
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/ivSearch"
                     android:layout_weight="2.4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

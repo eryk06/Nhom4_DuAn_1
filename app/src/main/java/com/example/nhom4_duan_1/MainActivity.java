@@ -8,12 +8,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.nhom4_duan_1.adapters.ProductAdapter;
+import com.example.nhom4_duan_1.managers.Manager;
 import com.example.nhom4_duan_1.models.Products;
 import com.example.nhom4_duan_1.views.ProductActivity;
 import com.example.nhom4_duan_1.views.UsersActivity;
@@ -24,12 +28,15 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView recyclerProduct;
     AlertDialog alertDialog;
+    EditText edtSeach;
+    ArrayList<Products> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView ivFilter = (ImageView) findViewById(R.id.ivFilter);
         ImageView ivUser = (ImageView) findViewById(R.id.ivUser);
+        ImageView ivSearch = findViewById(R.id.ivSearch);
+        edtSeach = findViewById(R.id.edtSearch);
+
+        list = new ArrayList<>();
 
         ivUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,11 +70,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ivSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchData();
+            }
+        });
+
         getData();
     }
 
+    public void searchData(){
+        Manager manager = new Manager(list);
+        if (edtSeach.getText().length() > 0){
+            List<String> lst = manager.onSearch(edtSeach.getText().toString());
+            System.out.println("edt: " + edtSeach.getText().toString());
+            System.out.println("lst: " + lst);
+            if (lst.isEmpty() == false){
+                Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+                intent.putStringArrayListExtra("list", (ArrayList<String>) lst);
+                intent.putExtra("check",1);
+                intent.putExtra("search",edtSeach.getText().toString());
+                startActivity(intent);
+            }else{
+                Toast.makeText(this, "Không có sản phẩm bạn tìm", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     public void getData(){
-        ArrayList<Products> list = new ArrayList<>();
         db.collection("Products")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

@@ -25,7 +25,6 @@ import java.util.Map;
 public class CartActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView recyclerCart;
-    ArrayList<Cart> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +33,12 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerCart = (RecyclerView) findViewById(R.id.recyclerCart);
 
-        list = new ArrayList<>();
+
         getData();
     }
 
     public void getData() {
+        ArrayList<Cart> list = new ArrayList<>();
         db.collection("Cart")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

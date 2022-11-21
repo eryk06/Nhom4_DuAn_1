@@ -20,6 +20,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/ivBackProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -42,43 +43,13 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/tvNameProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Food"
+                    android:text="Product"
                     android:textSize="30dp"
                     android:textColor="#000000"
                     android:textStyle="bold"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/btn_bg"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_weight="2.3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/loupe"/>
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName7"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Food,groceries,drinks,..."/>
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_weight="2.3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/sort1" />
 
             </LinearLayout>
 

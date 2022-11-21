@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.adapters.ProductAdapter;
@@ -25,17 +29,50 @@ import java.util.Map;
 public class ProductActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView recyclerProduct;
-
+    int check = 0;
+    String search = "";
+    List<String> listString;
+    ArrayList<Products> list;
+    TextView tvnameProduct;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
-        getData();
+        list = new ArrayList<>();
+        tvnameProduct = findViewById(R.id.tvNameProduct);
+
+        System.out.println("check: " + check);
+
+        ImageView ivBackProduct = findViewById(R.id.ivBackProduct);
+        ivBackProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+        getDataFirebase();
+
     }
 
-    public void getData(){
-        ArrayList<Products> list = new ArrayList<>();
+    public void getDataActivity(){
+        tvnameProduct.setText("Search work ' "+ search + " '");
+        ArrayList<Products> listTemp = new ArrayList<>();
+        for (Products lst1: list) {
+            for (String lst2: listString) {
+                if (lst1.getId().equals(lst2)){
+                    listTemp.add(lst1);
+                }
+            }
+        }
+        System.out.println("ListTemp: "+ listTemp);
+        FillData(listTemp);
+    }
+
+
+    public void getDataFirebase(){
         db.collection("Products")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -55,7 +92,17 @@ public class ProductActivity extends AppCompatActivity {
                                 list.add(products);
                                 System.out.println(i + " ---" + list.get(list.size()-1));
                             }
-                            FillData(list);
+
+                            Intent intent = getIntent();
+                            listString = intent.getStringArrayListExtra("list");
+                            check = intent.getIntExtra("check",0);
+                            search = intent.getStringExtra("search");
+                            if (check == 0){
+                                FillData(list);
+                            }
+                            if (check == 1){
+                                getDataActivity();
+                            }
                         } else {
                             Log.w(">>>TAG", "Error getting documents.", task.getException());
                         }
