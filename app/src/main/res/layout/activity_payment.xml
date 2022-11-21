@@ -75,11 +75,11 @@
     </LinearLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="-140dp"
-        android:src="@drawable/credit"/>
+        android:src="@drawable/card"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -164,10 +164,10 @@
     </LinearLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="-66dp"
-        android:src="@drawable/money"/>
+        android:src="@drawable/cash"/>
 
 </LinearLayout>

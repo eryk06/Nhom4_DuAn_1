@@ -46,5 +46,13 @@ public class UsersActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        llTP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UsersActivity.this, TermsvsPrivacyActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

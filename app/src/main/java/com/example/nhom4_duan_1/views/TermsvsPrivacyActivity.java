@@ -11,6 +11,6 @@ public class TermsvsPrivacyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_termsvs_privacy);
+        setContentView(R.layout.activity_terms_vs_privacy);
     }
 }
