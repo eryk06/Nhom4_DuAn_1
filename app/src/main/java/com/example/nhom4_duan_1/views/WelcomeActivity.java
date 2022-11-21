@@ -25,6 +25,7 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onFinish() {
                 Intent intent = new Intent(WelcomeActivity.this, HiActivity.class);
                 startActivity(intent);
+                finish();
             }
         }.start();
     }
