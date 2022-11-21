@@ -42,8 +42,9 @@ public class ProductActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-
+                            int i = 0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
+                                i+=1;
                                 Map<String, Object> item = document.getData();
                                 Products products = new Products();
                                 products.setId(document.getId());
@@ -52,6 +53,7 @@ public class ProductActivity extends AppCompatActivity {
                                 products.setType(item.get("Type").toString());
                                 products.setPrice(Double.parseDouble(item.get("Price").toString()));
                                 list.add(products);
+                                System.out.println(i + " ---" + list.get(list.size()-1));
                             }
                             FillData(list);
                         } else {

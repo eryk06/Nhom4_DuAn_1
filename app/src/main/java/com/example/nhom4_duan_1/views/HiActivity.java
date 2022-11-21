@@ -19,7 +19,7 @@ public class HiActivity extends AppCompatActivity {
     }
 
     public void getContinue(View view){
-        Intent intent = new Intent(HiActivity.this, ProductActivity.class);
+        Intent intent = new Intent(HiActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

@@ -1,6 +1,5 @@
 package com.example.nhom4_duan_1.adapters;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
@@ -41,7 +40,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.tvName.setText(list.get(position).getName());
 
         Picasso.get()
-                .load("https://firebasestorage.googleapis.com/v0/b/project1-a3436.appspot.com/o/3d027c4b7f24be7ae735.jpg?alt=media&token=c5b741bf-5fc3-434f-b946-d935c5e6af72")
+                .load(list.get(position).getImage())
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .error(R.drawable.ic_launcher_foreground)
                 .fit()
