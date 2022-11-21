@@ -10,7 +10,6 @@ public class Manager {
 
     private List<Products> list;
     private List<Products> listTemp;
-    Products products;
 
     public Manager(List<Products> list) {
         this.list = list;

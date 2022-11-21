@@ -38,6 +38,7 @@
                     android:textColor="@color/black"/>
 
                 <ImageView
+                    android:id="@+id/ivUser"
                     android:layout_weight="1"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -129,7 +130,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
 
 
 

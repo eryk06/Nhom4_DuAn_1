@@ -6,11 +6,13 @@ import android.os.Bundle;
 
 import com.example.nhom4_duan_1.R;
 
-public class OdersActivity extends AppCompatActivity {
+public class VoucherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_oders);
+        setContentView(R.layout.activity_voucher);
+
+
     }
 }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import com.example.nhom4_duan_1.adapters.ProductAdapter;
 import com.example.nhom4_duan_1.models.Products;
 import com.example.nhom4_duan_1.views.ProductActivity;
+import com.example.nhom4_duan_1.views.UsersActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -35,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView ivFilter = (ImageView) findViewById(R.id.ivFilter);
+        ImageView ivUser = (ImageView) findViewById(R.id.ivUser);
+
+        ivUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UsersActivity.class);
+                startActivity(intent);
+            }
+        });
 
         ivFilter.setOnClickListener(new View.OnClickListener() {
             @Override
