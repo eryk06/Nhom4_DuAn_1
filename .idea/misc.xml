@@ -9,6 +9,7 @@
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable-v24/btn_oders_5.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable-v24/btn_oders_6.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1635" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/btn_add_to_cart.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/btn_oders.xml" value="0.1635" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/btn_oders_4.xml" value="0.1505" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/drawable/btn_oders_7.xml" value="0.1505" />
@@ -28,6 +29,7 @@
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart.xml" value="0.18" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart2.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart_without_products.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_detail_product.xml" value="0.18854166666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_hi.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />

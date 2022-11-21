@@ -2,6 +2,7 @@ package com.example.nhom4_duan_1.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.models.Products;
+import com.example.nhom4_duan_1.views.DetailProductActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -59,6 +61,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     public void getProduct(Products products){
+        Intent intent = new Intent(context, DetailProductActivity.class);
+        intent.putExtra("id",products.getId());
+        intent.putExtra("name",products.getName());
+        intent.putExtra("price",products.getPrice());
+        intent.putExtra("image",products.getImage());
+        intent.putExtra("type",products.getType());
+        context.startActivity(intent);
         System.out.println(products);
     }
 
