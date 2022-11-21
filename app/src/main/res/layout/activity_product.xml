@@ -6,15 +6,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".views.ProductActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -50,30 +53,36 @@
             android:layout_marginTop="5dp"
             android:background="@drawable/btn_bg"
             android:gravity="center">
+
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_weight="2.3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/loupe"/>
+
             <EditText
                 android:id="@+id/editTextTextPersonName7"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Food,groceries,drinks,..."/>
+
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_weight="2.3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/sort1" />
+
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"/>
+
     </LinearLayout>
 
 

@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="<4 Items>"
+            android:text="4 Items"
             android:layout_marginTop="50dp"
             android:layout_marginStart="115dp"
             android:textSize="24sp"/>

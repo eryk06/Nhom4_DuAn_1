@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".views.HomeActivity">
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,6 +43,7 @@
                     android:src="@drawable/user"/>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,22 +51,26 @@
                 android:orientation="vertical"
                 android:visibility="visible"
                 android:gravity="center">
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/triangle"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:background="@drawable/btn_oders_3"
                     android:gravity="center">
+
                     <ImageView
                         android:id="@+id/imageView11"
-                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
                         android:src="@drawable/location" />
+
                     <TextView
                         android:id="@+id/textView15"
                         android:layout_weight="5"
@@ -75,10 +81,10 @@
                         android:text="Is this the right address? It looks a little far from you."
                         android:textSize="20sp"
                         android:textColor="@color/black"/>
+
                 </LinearLayout>
+
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,26 +94,29 @@
                 android:orientation="horizontal"
                 android:background="@drawable/btn_bg"
                 android:gravity="center">
+
                 <ImageView
                     android:id="@+id/imageView7"
                     android:layout_weight="2.3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/loupe"/>
+
                 <EditText
                     android:id="@+id/editTextTextPersonName7"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Food,groceries,drinks,..."/>
+                    android:hint="Food, groceries, drinks,..."/>
+
                 <ImageView
                     android:id="@+id/imageView9"
                     android:layout_weight="2.3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/sort1" />
-            </LinearLayout>
 
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -119,27 +128,27 @@
                 android:id="@+id/textView18"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="13dp"
+                android:layout_marginStart="4dp"
                 android:background="@drawable/btn_oders" />
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="15dp"
                 android:background="@drawable/btn_oders" />
 
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="15dp"
                 android:background="@drawable/btn_oders" />
 
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="15dp"
                 android:background="@drawable/btn_oders" />
 
         </LinearLayout>
@@ -153,28 +162,28 @@
                 android:id="@+id/imageView13"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="10dp"
                 android:src="@drawable/food"/>
 
             <ImageView
                 android:id="@+id/imageView14"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="25dp"
                 android:src="@drawable/drink"/>
 
             <ImageView
                 android:id="@+id/imageView15"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="22dp"
                 android:src="@drawable/snacks"/>
 
             <ImageView
                 android:id="@+id/imageView16"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="25dp"
                 android:src="@drawable/seeall"/>
 
         </LinearLayout>
@@ -195,4 +204,5 @@
         android:backgroundTint="@color/gray"
         android:layout_margin="20dp"
         android:src="@drawable/cart"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

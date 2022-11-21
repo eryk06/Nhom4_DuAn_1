@@ -57,4 +57,15 @@ public class Products {
     public void setPrice(double price) {
         Price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Products{" +
+                "Id='" + Id + '\'' +
+                ", Name='" + Name + '\'' +
+                ", Image='" + Image + '\'' +
+                ", Type='" + Type + '\'' +
+                ", Price=" + Price +
+                '}';
+    }
 }

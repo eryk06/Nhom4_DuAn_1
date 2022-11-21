@@ -8,17 +8,17 @@
     tools:context=".views.LoginActivity">
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="ENTER YOUR MOBILE PHONE NUMBER"
-        android:textSize="20sp"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/edtSDT"
         android:layout_width="380dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -30,7 +30,7 @@
         android:layout_gravity="center"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnContinue"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -38,6 +38,13 @@
         android:layout_gravity="center"
         android:backgroundTint="#000"/>
 
-<!--    dùng aip của gg/facebook là có nút hết-->
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnGoogle"
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"/>
+
+<!--    Dùng API của gg/facebook là có nút hết-->
 
 </LinearLayout>
