@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nhom4_duan_1.R;
@@ -19,13 +21,16 @@ import com.example.nhom4_duan_1.models.Bills;
 import com.example.nhom4_duan_1.models.Cart;
 import com.example.nhom4_duan_1.models.Products;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -35,6 +40,10 @@ public class CartActivity extends AppCompatActivity {
     ArrayList<Products> listPro;
     ArrayList<Cart> listCart;
     ArrayList<Products> listTemp;
+    Button btnBuy;
+    TextView tvSubtotal,tvFee,tvPriceVoucher,tvTotalCart;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +52,12 @@ public class CartActivity extends AppCompatActivity {
         listPro = new ArrayList<>();
         listCart = new ArrayList<>();
         listTemp = new ArrayList<>();
+        tvSubtotal = findViewById(R.id.tvSubtotal);
+        tvFee = findViewById(R.id.tvFee);
+        tvPriceVoucher = findViewById(R.id.tvFee);
+        tvTotalCart = findViewById(R.id.tvTotalCart);
+        btnBuy = findViewById(R.id.btnBuy);
+
 
         recyclerCart = (RecyclerView) findViewById(R.id.recyclerCart);
         ImageView ivBackCart = findViewById(R.id.ivBackCart);
@@ -136,6 +151,43 @@ public class CartActivity extends AppCompatActivity {
                 });
     }
 
+
+
+    public void getPriceCart(){
+        double subtotal = 0;
+        for (Cart lst: listCart) {
+            subtotal += lst.getTotal();
+        }
+        tvSubtotal.setText(subtotal + "đ");
+        tvTotalCart.setText(subtotal + 30000 - 10000 + "đ");
+    }
+
+//    public void addToBill(){
+//        Map<String, Object> user = new HashMap<>();
+//
+//        user.put("Id_User", products.getId());
+//        user.put("Time", amount);
+//        user.put("Total", total);
+//        user.put("Amount", amount);
+//        user.put("Total", total);
+//
+//        db.collection("Cart")
+//                .add(user)
+//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        finish();
+//                        System.out.println("Thêm cart thành công");
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        System.out.println("Lỗi thêm cart");
+//                    }
+//                });
+//    }
+
     public void FillData() {
         recyclerCart = (RecyclerView) findViewById(R.id.recyclerCart);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(CartActivity.this);
@@ -143,5 +195,8 @@ public class CartActivity extends AppCompatActivity {
         System.out.println("ListPro: " + listPro.size());
         CartAdapter adapter = new CartAdapter(CartActivity.this, listCart,listTemp);
         recyclerCart.setAdapter(adapter);
+        getPriceCart();
     }
+
+
 }
