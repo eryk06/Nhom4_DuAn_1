@@ -17,6 +17,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/ivProductCart"
                 android:layout_weight="2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,6 +32,7 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/tvNameProductCart"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -40,6 +42,7 @@
                     android:textColor="#000000"/>
 
                 <TextView
+                    android:id="@+id/tvNoteCart"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,6 +53,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/ivDeleteCart"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="15dp"

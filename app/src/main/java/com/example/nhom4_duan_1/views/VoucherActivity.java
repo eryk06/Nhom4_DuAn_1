@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.adapters.OderAdapter;
@@ -29,6 +31,13 @@ public class VoucherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voucher);
+        ImageView ivBackVoucher = findViewById(R.id.ivBackVoucher);
+        ivBackVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         recyclerVoucher = (RecyclerView) findViewById(R.id.recyclerVoucher);
         getData();

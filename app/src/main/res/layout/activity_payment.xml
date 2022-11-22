@@ -18,6 +18,7 @@
             android:background="@drawable/btn_oders_2"/>
 
         <ImageView
+            android:id="@+id/ivBackPay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-45dp"

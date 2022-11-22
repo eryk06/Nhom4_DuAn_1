@@ -128,7 +128,8 @@ public class DetailProductActivity extends AppCompatActivity {
     public void addToCart() {
         if (amount > 0) {
             for (Cart lst: list) {
-                if (products.getId().equals(lst.getId_Product())){
+//                if (products.getId().equals(lst.getId_Product())){
+                if (lst.getId_Product().equals(products.getId())){
                     check = -1;
                     cart = lst;
                     break;
@@ -168,6 +169,7 @@ public class DetailProductActivity extends AppCompatActivity {
 
     public void updateCart(){
         Map<String, Object> user = new HashMap<>();
+        user.put("Id_Product", products.getId());
         user.put("Amount", amount + cart.getAmount());
         user.put("Total", total + cart.getTotal());
 
@@ -191,7 +193,7 @@ public class DetailProductActivity extends AppCompatActivity {
     }
 
     public void getDataCart(){
-        list =new ArrayList<>();
+        list = new ArrayList<>();
         db.collection("Cart")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -208,7 +210,7 @@ public class DetailProductActivity extends AppCompatActivity {
                                 cart.setAmount(Integer.parseInt(item.get("Amount").toString()));
                                 cart.setTotal(Double.parseDouble(item.get("Total").toString()));
                                 list.add(cart);
-                                System.out.println(i + " ---" + list.get(list.size()-1));
+                                System.out.println(i + " Cart---" + list.get(list.size()-1));
                             }
                         } else {
                             Log.w(">>>TAG", "Error getting documents.", task.getException());

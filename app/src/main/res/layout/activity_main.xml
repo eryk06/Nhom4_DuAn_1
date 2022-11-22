@@ -47,6 +47,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-30dp"
@@ -174,14 +175,14 @@
                     android:layout_marginTop="-76dp">
 
                     <ImageView
-                        android:id="@+id/imageView13"
+                        android:id="@+id/ivFood"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginStart="10dp"
                         android:src="@drawable/food"/>
 
                     <ImageView
-                        android:id="@+id/imageView14"
+                        android:id="@+id/ivDrink"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginStart="25dp"

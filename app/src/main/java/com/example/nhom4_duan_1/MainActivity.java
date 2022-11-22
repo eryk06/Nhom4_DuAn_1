@@ -8,12 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.nhom4_duan_1.adapters.ProductAdapter;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edtSeach;
     ArrayList<Products> list;
     FloatingActionButton floatingActionButton;
+    LinearLayout ln5s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,41 @@ public class MainActivity extends AppCompatActivity {
         ImageView ivSearch = findViewById(R.id.ivSearch);
         edtSeach = findViewById(R.id.edtSearch);
         floatingActionButton = findViewById(R.id.fltCart);
+        ln5s = findViewById(R.id.linearNote);
+        ImageView ivFood = findViewById(R.id.ivFood);
+        ImageView ivDrink = findViewById(R.id.ivDrink);
+
+        ivFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+                intent.putExtra("type","Food");
+                intent.putExtra("check",2);
+                startActivity(intent);
+            }
+        });
+
+        ivDrink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+                intent.putExtra("type","Drink");
+                intent.putExtra("check",3);
+                startActivity(intent);
+            }
+        });
+
+        CountDownTimer timer = new CountDownTimer(5000,5000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                ln5s.setVisibility(View.GONE);
+            }
+        }.start();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

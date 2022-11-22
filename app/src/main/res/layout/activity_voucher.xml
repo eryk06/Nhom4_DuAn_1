@@ -18,10 +18,11 @@
             android:background="@drawable/btn_oders_2"/>
 
         <ImageView
+            android:id="@+id/ivBackVoucher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-45dp"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="-45dp"
             android:src="@drawable/next_3" />
 
     </LinearLayout>

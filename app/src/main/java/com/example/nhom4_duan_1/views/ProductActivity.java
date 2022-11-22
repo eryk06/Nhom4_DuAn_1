@@ -31,6 +31,7 @@ public class ProductActivity extends AppCompatActivity {
     RecyclerView recyclerProduct;
     int check = 0;
     String search = "";
+    String type = "";
     List<String> listString;
     ArrayList<Products> list;
     TextView tvnameProduct;
@@ -71,6 +72,30 @@ public class ProductActivity extends AppCompatActivity {
         FillData(listTemp);
     }
 
+    public void getDataFood(){
+        tvnameProduct.setText(type);
+        ArrayList<Products> listTemp = new ArrayList<>();
+        for (Products lst: list) {
+            if (lst.getType().equals("Food")){
+                listTemp.add(lst);
+            }
+        }
+        System.out.println("ListTemp: "+ listTemp);
+        FillData(listTemp);
+    }
+
+    public void getDataDrink(){
+        tvnameProduct.setText(type);
+        ArrayList<Products> listTemp = new ArrayList<>();
+        for (Products lst: list) {
+            if (lst.getType().equals("Drink")){
+                listTemp.add(lst);
+            }
+        }
+        System.out.println("ListTemp: "+ listTemp);
+        FillData(listTemp);
+    }
+
 
     public void getDataFirebase(){
         db.collection("Products")
@@ -97,11 +122,18 @@ public class ProductActivity extends AppCompatActivity {
                             listString = intent.getStringArrayListExtra("list");
                             check = intent.getIntExtra("check",0);
                             search = intent.getStringExtra("search");
+                            type = intent.getStringExtra("type");
                             if (check == 0){
                                 FillData(list);
                             }
                             if (check == 1){
                                 getDataActivity();
+                            }
+                            if (check == 2){
+                                getDataFood();
+                            }
+                            if (check == 3){
+                                getDataDrink();
                             }
                         } else {
                             Log.w(">>>TAG", "Error getting documents.", task.getException());

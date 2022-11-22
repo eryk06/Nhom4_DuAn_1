@@ -30,6 +30,23 @@ public class UsersActivity extends AppCompatActivity {
         ivUser = (ImageView) findViewById(R.id.ivUser);
         ivBackUser = findViewById(R.id.ivBackUser);
 
+        ImageView ivBackTerm = findViewById(R.id.ivBackUser);
+        ivBackTerm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        LinearLayout linearUserClick = findViewById(R.id.linearUserClick);
+        linearUserClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UsersActivity.this, AccountActivity.class);
+                startActivity(intent);
+            }
+        });
+
         ivUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
