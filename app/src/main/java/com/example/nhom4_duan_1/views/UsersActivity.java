@@ -14,9 +14,12 @@ import com.example.nhom4_duan_1.MainActivity;
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.models.Vouchers;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class UsersActivity extends AppCompatActivity {
     LinearLayout llMO, llVouchers, llPM, llTP;
-    ImageView ivUser , ivBackUser;
+    ImageView ivBackUser;
+    CircleImageView ciPic;
     private final int GALLERY_REQ_CODE = 1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,7 @@ public class UsersActivity extends AppCompatActivity {
         llVouchers = (LinearLayout) findViewById(R.id.llVouchers);
         llPM = (LinearLayout) findViewById(R.id.llPM);
         llTP = (LinearLayout) findViewById(R.id.llTP);
-        ivUser = (ImageView) findViewById(R.id.ivUser);
+        ciPic = (CircleImageView) findViewById(R.id.ciPic);
         ivBackUser = findViewById(R.id.ivBackUser);
 
         ImageView ivBackTerm = findViewById(R.id.ivBackUser);
@@ -47,14 +50,14 @@ public class UsersActivity extends AppCompatActivity {
             }
         });
 
-        ivUser.setOnClickListener(new View.OnClickListener() {
+        ciPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-        ivUser.setOnClickListener(new View.OnClickListener() {
+        ciPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
@@ -103,7 +106,7 @@ public class UsersActivity extends AppCompatActivity {
         if (resultCode==RESULT_OK){
 
             if (requestCode==GALLERY_REQ_CODE){
-                ivUser.setImageURI(data.getData());
+                ciPic.setImageURI(data.getData());
             }
 
         }
