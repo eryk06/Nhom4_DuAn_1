@@ -110,7 +110,7 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Food, groceries, drinks,..."/>
+                    android:hint="Bánh, Nước, Sinh tố,..."/>
 
                 <ImageView
                     android:id="@+id/ivSearch"

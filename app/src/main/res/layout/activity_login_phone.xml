@@ -10,17 +10,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/btn_hihi"/>
 
         <ImageView
+            android:id="@+id/ivBackOder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-410dp"
-            android:layout_marginVertical="5dp"
+            android:layout_marginTop="-45dp"
+            android:layout_marginStart="5dp"
             android:src="@drawable/next_3" />
 
     </LinearLayout>
@@ -61,7 +63,7 @@
 
         <EditText
             android:id="@+id/editTextTextPersonName"
-            android:layout_width="380dp"
+            android:layout_width="370dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="10dp"
@@ -93,7 +95,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:layout_width="380dp"
+            android:layout_width="370dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="10dp"
@@ -102,13 +104,6 @@
             android:ems="10"
             android:hint="Enter your password"
             android:inputType="textPersonName"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/eye"
-            android:layout_marginTop="18dp"
-            android:layout_marginStart="-50dp"/>
 
     </LinearLayout>
 
@@ -132,7 +127,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:layout_width="380dp"
+            android:layout_width="370dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="10dp"
@@ -141,13 +136,6 @@
             android:ems="10"
             android:hint="Enter your repassword"
             android:inputType="textPersonName"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/eye"
-            android:layout_marginTop="18dp"
-            android:layout_marginStart="-50dp"/>
 
     </LinearLayout>
 
@@ -171,7 +159,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:layout_width="380dp"
+            android:layout_width="370dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="10dp"
@@ -185,15 +173,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp">
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back"
-            android:layout_marginStart="10dp"/>
+        android:layout_height="match_parent"
+        android:gravity="bottom|end">
 
         <Button
             android:layout_width="wrap_content"
@@ -201,7 +182,8 @@
             android:text="OK"
             android:backgroundTint="#90F2F2"
             android:textColor="#1375E9"
-            android:layout_marginStart="250dp"/>
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"/>
 
     </LinearLayout>
 
