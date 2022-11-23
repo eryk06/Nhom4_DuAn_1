@@ -19,13 +19,16 @@
             android:layout_marginStart="-18dp"
             android:src="@drawable/synthwave" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-55dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ciPic"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/man" />
+            android:layout_marginTop="-50dp"
+            android:src="@drawable/man"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,6 +51,7 @@
                 android:gravity="center">
 
                 <EditText
+                    android:id="@+id/edtName"
                     android:layout_width="match_parent"
                     android:layout_weight="3"
                     android:layout_height="wrap_content"
@@ -81,6 +85,7 @@
                 android:gravity="center">
 
                 <EditText
+                    android:id="@+id/edtPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_weight="3"
                     android:layout_height="wrap_content"
@@ -112,6 +117,7 @@
                 android:gravity="center">
 
                 <EditText
+                    android:id="@+id/edtAddress"
                     android:layout_width="match_parent"
                     android:layout_weight="3"
                     android:layout_height="wrap_content"
@@ -126,6 +132,19 @@
                     android:src="@drawable/edit"/>
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="#03A9F4"
+                android:text="Accept"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textColor="#000000" />
 
             <TextView
                 android:layout_width="match_parent"

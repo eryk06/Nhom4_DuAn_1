@@ -50,7 +50,7 @@ public class UsersActivity extends AppCompatActivity {
             }
         });
 
-        ciPic.setOnClickListener(new View.OnClickListener() {
+        ivBackTerm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
