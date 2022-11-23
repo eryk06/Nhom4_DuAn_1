@@ -29,7 +29,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,6 +55,7 @@ public class CartActivity extends AppCompatActivity {
         listPro = new ArrayList<>();
         listCart = new ArrayList<>();
         listTemp = new ArrayList<>();
+
         tvSubtotal = findViewById(R.id.tvSubtotal);
         tvFee = findViewById(R.id.tvFee);
         tvPriceVoucher = findViewById(R.id.tvFee);
@@ -161,32 +165,34 @@ public class CartActivity extends AppCompatActivity {
         tvSubtotal.setText(subtotal + "đ");
         tvTotalCart.setText(subtotal + 30000 - 10000 + "đ");
     }
+    public void getCalender(){
+        DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd");
+        String date =dfDate.format(Calendar.getInstance().getTime());
+    }
 
-//    public void addToBill(){
-//        Map<String, Object> user = new HashMap<>();
-//
-//        user.put("Id_User", products.getId());
-//        user.put("Time", amount);
-//        user.put("Total", total);
-//        user.put("Amount", amount);
-//        user.put("Total", total);
-//
-//        db.collection("Cart")
-//                .add(user)
-//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//                        finish();
-//                        System.out.println("Thêm cart thành công");
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        System.out.println("Lỗi thêm cart");
-//                    }
-//                });
-//    }
+    public void addToBill(){
+        Map<String, Object> user = new HashMap<>();
+        user.put("Id_User", "1");
+        user.put("Time", );
+        user.put("Total", total);
+        user.put("Amount", amount);
+
+        db.collection("Cart")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        finish();
+                        System.out.println("Thêm cart thành công");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        System.out.println("Lỗi thêm cart");
+                    }
+                });
+    }
 
     public void FillData() {
         recyclerCart = (RecyclerView) findViewById(R.id.recyclerCart);
