@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Products> list;
     FloatingActionButton floatingActionButton;
     LinearLayout ln5s;
-    String IdUser;
+    String IdUser, Login;
     Users user;
     TextView tvAddressUser;
 
@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         IdUser = intent.getStringExtra("Id");
+        Login = intent.getStringExtra("Login");
+        System.out.println("Login : " + Login);
 
         list = new ArrayList<>();
         user = new Users();
@@ -125,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UsersActivity.class);
                 intent.putExtra("Id",IdUser);
+                intent.putExtra("Login",Login);
                 startActivity(intent);
             }
         });
@@ -135,6 +138,53 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 LayoutInflater inflater = getLayoutInflater();
                 View view = inflater.inflate(R.layout.dialog_filter, null);
+                LinearLayout lnlnSortPriceASC = view.findViewById(R.id.lnSortPriceASC);
+                LinearLayout lnlnSortPriceDESC = view.findViewById(R.id.lnSortPriceDESC);
+                LinearLayout lnlnSortNameAtoZ = view.findViewById(R.id.lnSortNameAtoZ);
+                LinearLayout lnlnSortNameZtoA = view.findViewById(R.id.lnSortNameZtoA);
+
+                Manager manager = new Manager(list);
+
+                lnlnSortPriceASC.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ArrayList<Products> lst = new ArrayList<>();
+                        lst = (ArrayList<Products>) manager.onSortPrice_ASC();
+                        FillData(lst);
+                        alertDialog.dismiss();
+                    }
+                });
+
+                lnlnSortPriceDESC.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ArrayList<Products> lst = new ArrayList<>();
+                        lst = (ArrayList<Products>) manager.onSortPrice_DESC();
+                        FillData(lst);
+                        alertDialog.dismiss();
+                    }
+                });
+
+                lnlnSortNameAtoZ.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ArrayList<Products> lst = new ArrayList<>();
+                        lst = (ArrayList<Products>) manager.onSortName_AtoZ();
+                        FillData(lst);
+                        alertDialog.dismiss();
+                    }
+                });
+
+                lnlnSortNameZtoA.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ArrayList<Products> lst = new ArrayList<>();
+                        lst = (ArrayList<Products>) manager.onSortName_ZtoA();
+                        FillData(lst);
+                        alertDialog.dismiss();
+                    }
+                });
+
                 builder.setView(view);
                 alertDialog = builder.create();
                 alertDialog.show();
@@ -150,6 +200,13 @@ public class MainActivity extends AppCompatActivity {
 
         getData();
         getUser();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getUser();
+        getData();
     }
 
     public void searchData(){

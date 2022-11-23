@@ -27,6 +27,16 @@ public class Manager {
         return list;
     }
 
+    public List<Products> onSortName_ZtoA(){
+        Collections.sort(list, new Comparator<Products>() {
+            @Override
+            public int compare(Products o1, Products o2) {
+                return o2.getName().compareTo(o1.getName());
+            }
+        });
+        return list;
+    }
+
     public List<Products> onSortPrice_ASC(){
         Collections.sort(list, new Comparator<Products>() {
             @Override

@@ -82,7 +82,7 @@
                     android:id="@+id/tvPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="8dp"
+                    android:paddingLeft="9dp"
                     android:visibility="gone"
                     android:text="+89123456789"
                     android:textSize="16sp"/>

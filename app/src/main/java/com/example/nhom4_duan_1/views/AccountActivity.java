@@ -12,9 +12,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.models.Users;
 import com.example.nhom4_duan_1.models.Vouchers;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -41,10 +46,12 @@ public class AccountActivity extends AppCompatActivity {
     CircleImageView ciPic;
     private final int GALLERY_REQ_CODE = 1000;
     EditText edtName, edtPhoneNumber, edtAddress;
-    Button btnSave;
+    Button btnSave, btnLogout;
     Users user;
-    String IdUser;
+    String IdUser,Login;
     Uri dowloadUri;
+
+    GoogleSignInClient googleSignInClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +59,8 @@ public class AccountActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         IdUser = intent.getStringExtra("Id");
+        Login = intent.getStringExtra("Login");
+        System.out.println("Login : " + Login);
 
         ciPic = (CircleImageView) findViewById(R.id.ciPic);
         ciPic.setDrawingCacheEnabled(true);
@@ -61,6 +70,80 @@ public class AccountActivity extends AppCompatActivity {
         edtPhoneNumber = (EditText) findViewById(R.id.edtPhoneNumber);
         edtAddress = (EditText) findViewById(R.id.edtAddress);
         btnSave = (Button) findViewById(R.id.btnSave);
+        btnLogout = findViewById(R.id.btnLogout);
+
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(
+                GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(AccountActivity.this, googleSignInOptions);
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Login.equals("normal")){
+                    db.collection("UserOnline")
+                            .whereEqualTo("Id_User", IdUser)
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                            db.collection("UserOnline")
+                                                    .document(document.getId())
+                                                    .delete()
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void unused) {
+                                                            Intent intent1 = new Intent(AccountActivity.this, WelcomeActivity.class);
+                                                            startActivity(intent1);
+                                                            Toast.makeText(AccountActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
+                                                            finish();
+                                                        }
+                                                    });
+                                        }
+                                    } else {
+
+                                    }
+                                }
+                            });
+
+                }
+                if (Login.equals("email")){
+                    googleSignInClient.signOut().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            db.collection("UserOnline")
+                                    .whereEqualTo("Id_User", IdUser)
+                                    .get()
+                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                                    db.collection("UserOnline")
+                                                            .document(document.getId())
+                                                            .delete()
+                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                @Override
+                                                                public void onSuccess(Void unused) {
+                                                                    Intent intent1 = new Intent(AccountActivity.this, WelcomeActivity.class);
+                                                                    startActivity(intent1);
+                                                                    finish();
+                                                                }
+                                                            });
+                                                }
+                                            } else {
+                                            }
+                                        }
+                                    });
+                        }
+                    });
+                }
+            }
+        });
 
         ciPic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,14 +265,14 @@ public class AccountActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            System.out.println("Sửa thành công");
+                            Toast.makeText(AccountActivity.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            System.out.println("Sửa không thành công");
+                            Toast.makeText(AccountActivity.this, "Cập nhật không thành công", Toast.LENGTH_SHORT).show();
                         }
                     });
         }

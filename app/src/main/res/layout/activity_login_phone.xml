@@ -62,7 +62,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/edtNameNormal"
             android:layout_width="370dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
@@ -95,6 +95,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/edtPassNormal"
             android:layout_width="370dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
@@ -127,6 +128,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/edtRepassNormal"
             android:layout_width="370dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
@@ -159,6 +161,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/edtAddressNormal"
             android:layout_width="370dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
@@ -177,6 +180,7 @@
         android:gravity="bottom|end">
 
         <Button
+            android:id="@+id/btnLoginNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OK"

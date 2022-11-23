@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.nhom4_duan_1.MainActivity;
@@ -25,13 +26,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
@@ -46,6 +51,13 @@ public class LoginActivity extends AppCompatActivity {
 
         EditText edtSDT = (EditText) findViewById(R.id.edtSDT);
         Button btnContinue = (Button) findViewById(R.id.btnContinue);
+        ImageView ivBackLogin = findViewById(R.id.ivBackLogin);
+        ivBackLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         list = new ArrayList<>();
         getUser();
@@ -129,11 +141,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                         if (check == 1){
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            intent.putExtra("Id",userCheck.getId());
-                            intent.putExtra("Login","email");
-                            startActivity(intent);
-                            finish();
+                            addUserOnline(userCheck.getId());
                         }
                         else {
                             Intent intent = new Intent(LoginActivity.this, LoginEmailActivity.class);
@@ -148,6 +156,31 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
     );
+
+    public void addUserOnline(String id){
+        Map<String, Object> user = new HashMap<>();
+        user.put("Id_User", id);
+
+        db.collection("UserOnline")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("Id",id);
+                        intent.putExtra("Login","email");
+                        startActivity(intent);
+                        finish();
+                        System.out.println("Thêm UserOnline thành công");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        System.out.println("Lỗi thêm UserOnline");
+                    }
+                });
+    }
 
     public void getUser(){
         db.collection("Users")

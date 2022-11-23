@@ -47,11 +47,15 @@ public class CartActivity extends AppCompatActivity {
     TextView tvSubtotal,tvFee,tvPriceVoucher,tvTotalCart;
     double subtotal = 0;
     double totalCart = 0;
+    String IdUser;
     int amount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
+        Intent intent = getIntent();
+        IdUser = intent.getStringExtra("Id");
 
         listPro = new ArrayList<>();
         listCart = new ArrayList<>();
@@ -182,7 +186,7 @@ public class CartActivity extends AppCompatActivity {
 
     public void addToBill(){
         Map<String, Object> user = new HashMap<>();
-        user.put("Id_User", "1");
+        user.put("Id_User", IdUser);
         user.put("Time", getCalender());
         user.put("Total", totalCart);
         user.put("Amount", amount);

@@ -47,7 +47,7 @@ public class WelcomeActivity extends AppCompatActivity {
                                 i+=1;
                                 Map<String, Object> item = document.getData();
                                 UserOnline users = new UserOnline();
-                                users.setId(item.get("Id").toString());
+                                users.setId(item.get("Id_User").toString());
                                 list.add(users);
                                 System.out.println(i + " ---" + list.get(list.size()-1));
                             }

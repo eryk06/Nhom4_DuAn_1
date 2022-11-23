@@ -38,7 +38,7 @@ public class UsersActivity extends AppCompatActivity {
     ImageView ivBackUser;
     CircleImageView ciPic;
     TextView tvNameUser, tvPhoneNumber, tvLogin;
-    String IdUser;
+    String IdUser, Login;
     private final int GALLERY_REQ_CODE = 1000;
     Users user;
 
@@ -49,6 +49,8 @@ public class UsersActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         IdUser = intent.getStringExtra("Id");
+        Login = intent.getStringExtra("Login");
+        System.out.println("Login : " + Login);
 
         user = new Users();
 
@@ -87,6 +89,7 @@ public class UsersActivity extends AppCompatActivity {
                 if (IdUser.equals("0")== false){
                     Intent intent = new Intent(UsersActivity.this, AccountActivity.class);
                     intent.putExtra("Id",IdUser);
+                    intent.putExtra("Login",Login);
                     startActivity(intent);
                 }
                 else {
@@ -116,6 +119,7 @@ public class UsersActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UsersActivity.this, OderActivity.class);
+                intent.putExtra("Id",IdUser);
                 startActivity(intent);
             }
         });

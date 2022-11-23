@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,10 +29,16 @@ import java.util.Map;
 public class OderActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView recyclerOder;
+    String IdUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oder);
+
+        Intent intent = getIntent();
+        IdUser = intent.getStringExtra("Id");
+
+
         ImageView ivBackOder = findViewById(R.id.ivBackOder);
         ivBackOder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,14 +62,16 @@ public class OderActivity extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 i+=1;
                                 Map<String, Object> item = document.getData();
-                                Bills bills = new Bills();
-                                bills.setId(document.getId());
-                                bills.setUser(item.get("Id_User").toString());
-                                bills.setTime(item.get("Time").toString());
-                                bills.setPrice(item.get("Total").toString());
-                                bills.setAmount(item.get("Amount").toString());
-                                list.add(bills);
-                                System.out.println(i + " ---" + list.get(list.size()-1));
+                                if (item.get("Id_User").equals(IdUser)){
+                                    Bills bills = new Bills();
+                                    bills.setId(document.getId());
+                                    bills.setUser(item.get("Id_User").toString());
+                                    bills.setTime(item.get("Time").toString());
+                                    bills.setPrice(item.get("Total").toString());
+                                    bills.setAmount(item.get("Amount").toString());
+                                    list.add(bills);
+                                    System.out.println(i + " ---" + list.get(list.size()-1));
+                                }
                             }
                             FillData(list);
                         } else {
