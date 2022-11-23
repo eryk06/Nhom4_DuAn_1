@@ -97,9 +97,9 @@ public class AccountActivity extends AppCompatActivity {
                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                         @Override
                                                         public void onSuccess(Void unused) {
+                                                            Toast.makeText(AccountActivity.this, "Successful Logout", Toast.LENGTH_SHORT).show();
                                                             Intent intent1 = new Intent(AccountActivity.this, WelcomeActivity.class);
                                                             startActivity(intent1);
-                                                            Toast.makeText(AccountActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
                                                             finish();
                                                         }
                                                     });
@@ -265,14 +265,14 @@ public class AccountActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(AccountActivity.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AccountActivity.this, "Successful Update", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(AccountActivity.this, "Cập nhật không thành công", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AccountActivity.this, "Update Failed", Toast.LENGTH_SHORT).show();
                         }
                     });
         }

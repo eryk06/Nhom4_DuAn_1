@@ -2,27 +2,24 @@ package com.example.nhom4_duan_1.views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.TextView;
 import com.example.nhom4_duan_1.MainActivity;
 import com.example.nhom4_duan_1.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoginPhoneActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText edtNameNormal, edtPassNormal, edtRepassNormal, edtAddressNormal;
-    Button btnLoginNormal;
+    TextView tvLoginNormal;
     String Phone, Login;
 
     @Override
@@ -40,8 +37,8 @@ public class LoginPhoneActivity extends AppCompatActivity {
         edtRepassNormal = findViewById(R.id.edtRepassNormal);
         edtAddressNormal = findViewById(R.id.edtAddressNormal);
 
-        btnLoginNormal = findViewById(R.id.btnLoginNormal);
-        btnLoginNormal.setOnClickListener(new View.OnClickListener() {
+        tvLoginNormal = findViewById(R.id.tvLoginNormal);
+        tvLoginNormal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = edtNameNormal.getText().toString().trim();

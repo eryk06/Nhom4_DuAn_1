@@ -213,7 +213,7 @@ public class CartActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
 
-                                            System.out.println("Thêm DetailBills thành công");
+                                            System.out.println("Successful Insert");
 
                                             db.collection("Cart")
                                                     .document(lst.getId())

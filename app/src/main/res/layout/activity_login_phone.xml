@@ -177,17 +177,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="bottom|end">
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        android:gravity="bottom|center">
 
-        <Button
-            android:id="@+id/btnLoginNormal"
+        <TextView
+            android:id="@+id/tvLoginNormal"
+            android:layout_width="128dp"
+            android:layout_height="45dp"
+            android:background="#90F2F2"
+            android:gravity="center"
+            android:paddingLeft="-25dp"
+            android:text="Ok"
+            android:textColor="#1375E9"
+            android:textSize="26dp" />
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK"
-            android:backgroundTint="#90F2F2"
-            android:textColor="#1375E9"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"/>
+            android:layout_marginTop="-40dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/next" />
 
     </LinearLayout>
 

@@ -155,6 +155,7 @@ public class DetailProductActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(DetailProductActivity.this, "Successful ADD TO CART", Toast.LENGTH_SHORT).show();
                         finish();
                         System.out.println("Thêm cart thành công");
                     }

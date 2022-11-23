@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.nhom4_duan_1.MainActivity;
 import com.example.nhom4_duan_1.R;
@@ -23,7 +24,7 @@ public class LoginEmailActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText edtNameGG,edtPhoneGG, edtAddressGG;
-    Button btnLoginOkk;
+    TextView tvLoginOkk;
     String Pass, Login;
 
     @Override
@@ -39,8 +40,8 @@ public class LoginEmailActivity extends AppCompatActivity {
         edtPhoneGG = findViewById(R.id.edtPhoneGG);
         edtAddressGG = findViewById(R.id.edtAddressGG);
 
-        btnLoginOkk = findViewById(R.id.btnOkk);
-        btnLoginOkk.setOnClickListener(new View.OnClickListener() {
+        tvLoginOkk = findViewById(R.id.tvLoginOkk);
+        tvLoginOkk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = edtNameGG.getText().toString().trim();
