@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.nhom4_duan_1.MainActivity;
 import com.example.nhom4_duan_1.R;
@@ -70,6 +71,42 @@ public class LoginActivity extends AppCompatActivity {
                 googleLauncher.launch(intent);
             }
         });
+
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sdt = edtSDT.getText().toString().trim();
+                if (sdt.length() >0){
+                    int check = 0 ;
+                    Users userCheck = new Users();
+                    for (Users user1: list) {
+                        if (user1.getPhone().equals(sdt)){
+                            check = 1;
+                            userCheck = user1;
+                            break;
+                        }
+                    }
+                    if (check == 1){
+                        Intent intent = new Intent(LoginActivity.this, PasswordActivity.class);
+                        intent.putExtra("Id",userCheck.getId());
+                        intent.putExtra("Pass",userCheck.getPass());
+                        intent.putExtra("Login","normal");
+                        startActivity(intent);
+                        finish();
+                    }
+                    else {
+                        Intent intent = new Intent(LoginActivity.this, LoginPhoneActivity.class);
+                        intent.putExtra("Phone", sdt);
+                        intent.putExtra("Login","normal");
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else {
+                    Toast.makeText(LoginActivity.this, "Enter your phone number", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     ActivityResultLauncher<Intent> googleLauncher = registerForActivityResult(
@@ -96,12 +133,14 @@ public class LoginActivity extends AppCompatActivity {
                             intent.putExtra("Id",userCheck.getId());
                             intent.putExtra("Login","email");
                             startActivity(intent);
+                            finish();
                         }
                         else {
                             Intent intent = new Intent(LoginActivity.this, LoginEmailActivity.class);
                             intent.putExtra("Pass",pass);
                             intent.putExtra("Login","email");
                             startActivity(intent);
+                            finish();
                         }
                     } catch (Exception e) {
                         Log.d(">>>>>>TAG", "onActivityResult Error: " + e.getMessage());
