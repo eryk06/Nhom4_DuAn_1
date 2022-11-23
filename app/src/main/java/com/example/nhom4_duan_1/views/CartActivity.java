@@ -45,8 +45,9 @@ public class CartActivity extends AppCompatActivity {
     ArrayList<Products> listTemp;
     Button btnBuy;
     TextView tvSubtotal,tvFee,tvPriceVoucher,tvTotalCart;
-
-
+    double subtotal = 0;
+    double totalCart = 0;
+    int amount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +70,13 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        btnBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToBill();
             }
         });
 
@@ -158,38 +166,77 @@ public class CartActivity extends AppCompatActivity {
 
 
     public void getPriceCart(){
-        double subtotal = 0;
         for (Cart lst: listCart) {
             subtotal += lst.getTotal();
+            amount += lst.getAmount();
         }
         tvSubtotal.setText(subtotal + "đ");
-        tvTotalCart.setText(subtotal + 30000 - 10000 + "đ");
+
+        totalCart = subtotal + 30000 - 10000;
+        tvTotalCart.setText(totalCart + "đ");
     }
-    public void getCalender(){
-        DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd");
-        String date =dfDate.format(Calendar.getInstance().getTime());
+    public String getCalender(){
+        DateFormat dfDate = new SimpleDateFormat("dd-MM-yyyy hh-mm-ss");
+        return dfDate.format(Calendar.getInstance().getTime());
     }
 
     public void addToBill(){
         Map<String, Object> user = new HashMap<>();
         user.put("Id_User", "1");
-        user.put("Time", );
-        user.put("Total", total);
+        user.put("Time", getCalender());
+        user.put("Total", totalCart);
         user.put("Amount", amount);
 
-        db.collection("Cart")
+        db.collection("Bills")
                 .add(user)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+//                        finish();
+                        System.out.println("Thêm Bills thành công");
+
+                        String idBills = documentReference.getId();
+                        for (Cart lst: listCart) {
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("Id_Bill", idBills);
+                            user.put("Id_Product", lst.getId_Product());
+                            user.put("Quantity", lst.getAmount());
+                            user.put("Amount", lst.getTotal());
+
+                            db.collection("DetailBill")
+                                    .add(user)
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+
+                                            System.out.println("Thêm DetailBills thành công");
+
+                                            db.collection("Cart")
+                                                    .document(lst.getId())
+                                                    .delete()
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void unused) {
+                                                            Toast.makeText(CartActivity.this, "Delete Cart Successful", Toast.LENGTH_SHORT).show();
+                                                            getDataProduct();
+                                                        }
+                                                    });
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            System.out.println("Lỗi thêm DetailBills");
+                                        }
+                                    });
+                        }
                         finish();
-                        System.out.println("Thêm cart thành công");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        System.out.println("Lỗi thêm cart");
+                        System.out.println("Lỗi thêm Bills");
                     }
                 });
     }
