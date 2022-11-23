@@ -145,7 +145,7 @@ public class AccountActivity extends AppCompatActivity {
 
                                     Picasso.get()
                                             .load(user.getImage())
-                                            .placeholder(R.mipmap.ic_launcher)
+                                            .placeholder(R.drawable.android)
                                             .error(R.drawable.man)
                                             .fit()
                                             .into(ciPic);
