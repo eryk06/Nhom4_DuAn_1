@@ -29,7 +29,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -45,36 +46,51 @@
         <LinearLayout
             android:id="@+id/linearUserClick"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvNameUser"
-                android:layout_width="274dp"
-                android:layout_height="65dp"
-                android:layout_marginVertical="20dp"
-                android:paddingTop="5dp"
-                android:textColor="#000"
-                android:textSize="20sp"
-                android:paddingLeft="8dp"
-                android:text="Nguyễn Văn A"
-                android:background="@drawable/btn_oders_2"
-                android:layout_marginStart="20dp"/>
-
-            <TextView
-                android:id="@+id/tvPhoneNumber"
-                android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:background="@drawable/btn_oders_2">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+89123456789"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="-50dp"/>
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    android:text="Log in"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvNameUser"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:text="Nguyễn Văn A"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:paddingLeft="8dp"
+                    android:text="+89123456789"/>
+            </LinearLayout>
+
 
             <ImageView
+                android:layout_weight="3"
                 android:id="@+id/ivPic"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginStart="250dp"
-                android:layout_marginTop="-40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:src="@drawable/next" />
 
         </LinearLayout>

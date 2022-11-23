@@ -39,8 +39,8 @@ public class OderAdapter extends RecyclerView.Adapter<OderAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTime.setText(list.get(position).getTime());
-        holder.tvPrice.setText(list.get(position).getPrice());
-        holder.tvAmount.setText(list.get(position).getAmount());
+        holder.tvPrice.setText(list.get(position).getPrice() + "đ");
+        holder.tvAmount.setText(list.get(position).getAmount() + " item");
     }
 
 

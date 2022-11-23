@@ -16,12 +16,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nhom4_duan_1.adapters.ProductAdapter;
 import com.example.nhom4_duan_1.managers.Manager;
 import com.example.nhom4_duan_1.models.Products;
+import com.example.nhom4_duan_1.models.Users;
 import com.example.nhom4_duan_1.views.CartActivity;
+import com.example.nhom4_duan_1.views.LoginActivity;
 import com.example.nhom4_duan_1.views.ProductActivity;
 import com.example.nhom4_duan_1.views.UsersActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +33,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,11 +48,20 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Products> list;
     FloatingActionButton floatingActionButton;
     LinearLayout ln5s;
+    String IdUser;
+    Users user;
+    TextView tvAddressUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        IdUser = intent.getStringExtra("Id");
+
+        list = new ArrayList<>();
+        user = new Users();
 
         ImageView ivFilter = (ImageView) findViewById(R.id.ivFilter);
         ImageView ivUser = (ImageView) findViewById(R.id.ivUser);
@@ -57,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         ln5s = findViewById(R.id.linearNote);
         ImageView ivFood = findViewById(R.id.ivFood);
         ImageView ivDrink = findViewById(R.id.ivDrink);
+        tvAddressUser = findViewById(R.id.tvAddressUser);
 
         ivFood.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,17 +108,23 @@ public class MainActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CartActivity.class);
-                startActivity(intent);
+                if (IdUser.equals("0")){
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(MainActivity.this, CartActivity.class);
+                    intent.putExtra("Id",IdUser);
+                    startActivity(intent);
+                }
             }
         });
-
-        list = new ArrayList<>();
 
         ivUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UsersActivity.class);
+                intent.putExtra("Id",IdUser);
                 startActivity(intent);
             }
         });
@@ -128,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         getData();
+        getUser();
     }
 
     public void searchData(){
@@ -166,9 +188,43 @@ public class MainActivity extends AppCompatActivity {
                                 products.setType(item.get("Type").toString());
                                 products.setPrice(Double.parseDouble(item.get("Price").toString()));
                                 list.add(products);
-                                System.out.println(i + " ---" + list.get(list.size()-1));
+//                                System.out.println(i + " ---" + list.get(list.size()-1));
                             }
                             FillData(list);
+                        } else {
+                            Log.w(">>>TAG", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+    }
+
+    public void getUser(){
+        db.collection("Users")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            int i = 0;
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                i+=1;
+                                Map<String, Object> item = document.getData();
+                                System.out.println(document.getId());
+                                System.out.println(IdUser);
+                                System.out.println(document.getId().equals(IdUser));
+                                if (document.getId().equals(IdUser)){
+                                    user.setId(document.getId());
+                                    user.setName(item.get("Name").toString());
+                                    user.setImage(item.get("Image").toString());
+                                    user.setPass(item.get("Pass").toString());
+                                    user.setPhone(item.get("Phone").toString());
+                                    user.setAddress(item.get("Address").toString());
+                                    System.out.println("Day la User " + user );
+                                    tvAddressUser.setText(user.getAddress());
+                                    System.out.println(user);
+                                    break;
+                                }
+                            }
                         } else {
                             Log.w(">>>TAG", "Error getting documents.", task.getException());
                         }

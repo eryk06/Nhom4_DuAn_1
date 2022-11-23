@@ -20,6 +20,7 @@ public class HiActivity extends AppCompatActivity {
 
     public void getContinue(View view){
         Intent intent = new Intent(HiActivity.this, MainActivity.class);
+        intent.putExtra("Id","0");
         startActivity(intent);
         finish();
     }

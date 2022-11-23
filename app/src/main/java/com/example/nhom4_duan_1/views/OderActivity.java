@@ -57,11 +57,9 @@ public class OderActivity extends AppCompatActivity {
                                 Map<String, Object> item = document.getData();
                                 Bills bills = new Bills();
                                 bills.setId(document.getId());
-                                bills.setUser(item.get("User").toString());
+                                bills.setUser(item.get("Id_User").toString());
                                 bills.setTime(item.get("Time").toString());
-                                bills.setProduct(item.get("Product").toString());
-                                bills.setVoucher(item.get("Voucher").toString());
-                                bills.setPrice(item.get("Price").toString());
+                                bills.setPrice(item.get("Total").toString());
                                 bills.setAmount(item.get("Amount").toString());
                                 list.add(bills);
                                 System.out.println(i + " ---" + list.get(list.size()-1));

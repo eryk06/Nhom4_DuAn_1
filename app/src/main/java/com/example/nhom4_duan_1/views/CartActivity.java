@@ -176,7 +176,7 @@ public class CartActivity extends AppCompatActivity {
         tvTotalCart.setText(totalCart + "đ");
     }
     public String getCalender(){
-        DateFormat dfDate = new SimpleDateFormat("dd-MM-yyyy hh-mm-ss");
+        DateFormat dfDate = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
         return dfDate.format(Calendar.getInstance().getTime());
     }
 

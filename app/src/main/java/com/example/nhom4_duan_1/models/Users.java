@@ -6,13 +6,19 @@ public class Users {
     private String Name;
     private String Phone;
     private String Address;
+    private String Image;
 
-    public Users(String id, String pass, String name, String phone, String address) {
+    public Users(){
+
+    }
+
+    public Users(String id, String pass, String name, String phone, String address, String image) {
         Id = id;
         Pass = pass;
         Name = name;
         Phone = phone;
         Address = address;
+        Image = image;
     }
 
     public String getId() {
@@ -55,5 +61,23 @@ public class Users {
         Address = address;
     }
 
+    public String getImage() {
+        return Image;
+    }
 
+    public void setImage(String image) {
+        Image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "Id='" + Id + '\'' +
+                ", Pass='" + Pass + '\'' +
+                ", Name='" + Name + '\'' +
+                ", Phone='" + Phone + '\'' +
+                ", Address='" + Address + '\'' +
+                ", Image='" + Image + '\'' +
+                '}';
+    }
 }
