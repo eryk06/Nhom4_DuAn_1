@@ -52,6 +52,7 @@ public class AccountActivity extends AppCompatActivity {
     Uri dowloadUri;
 
     GoogleSignInClient googleSignInClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -272,7 +273,7 @@ public class AccountActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(AccountActivity.this, "Update Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AccountActivity.this, "Failed Update", Toast.LENGTH_SHORT).show();
                         }
                     });
         }
