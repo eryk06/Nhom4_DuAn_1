@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,10 +45,18 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient googleSignInClient;
     private SignInButton signInButton;
     ArrayList<Users> list;
+
+    public static final String MyPREFERENCES = "MyPrefs";
+    public static final String ID = "idKey";
+    public static final String LOGIN = "login";
+    SharedPreferences sharedpreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        sharedpreferences = getSharedPreferences(MyPREFERENCES,MODE_PRIVATE);
 
         EditText edtSDT = (EditText) findViewById(R.id.edtSDT);
         Button btnContinue = (Button) findViewById(R.id.btnContinue);
@@ -103,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                         intent.putExtra("Id",userCheck.getId());
                         intent.putExtra("Pass",userCheck.getPass());
                         intent.putExtra("Login","normal");
+                        saveData(userCheck.getId(),"normal");
                         startActivity(intent);
                         finish();
                     }
@@ -142,6 +152,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         if (check == 1){
                             addUserOnline(userCheck.getId());
+                            saveData(userCheck.getId(),"email");
                         }
                         else {
                             Intent intent = new Intent(LoginActivity.this, LoginEmailActivity.class);
@@ -156,6 +167,13 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
     );
+
+    private void saveData(String id, String Login) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString(ID, id);
+        editor.putString(LOGIN,Login);
+        editor.commit();
+    }
 
     public void addUserOnline(String id){
         Map<String, Object> user = new HashMap<>();

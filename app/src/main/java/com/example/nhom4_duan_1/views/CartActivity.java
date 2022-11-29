@@ -47,6 +47,8 @@ public class CartActivity extends AppCompatActivity {
     TextView tvSubtotal,tvFee,tvPriceVoucher,tvTotalCart;
     double subtotal = 0;
     double totalCart = 0;
+    double Fee = 0;
+    double vouchers = 0;
     String IdUser;
     int amount;
     @Override
@@ -61,9 +63,10 @@ public class CartActivity extends AppCompatActivity {
         listCart = new ArrayList<>();
         listTemp = new ArrayList<>();
 
+
         tvSubtotal = findViewById(R.id.tvSubtotal);
         tvFee = findViewById(R.id.tvFee);
-        tvPriceVoucher = findViewById(R.id.tvFee);
+        tvPriceVoucher = findViewById(R.id.tvPriceVoucher);
         tvTotalCart = findViewById(R.id.tvTotalCart);
         btnBuy = findViewById(R.id.btnBuy);
 
@@ -162,6 +165,10 @@ public class CartActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(CartActivity.this, "Delete Successful", Toast.LENGTH_SHORT).show();
+                        Fee = 0;
+                        vouchers = 0;
+                        subtotal= 0;
+                        totalCart = 0;
                         getDataProduct();
                     }
                 });
@@ -174,10 +181,23 @@ public class CartActivity extends AppCompatActivity {
             subtotal += lst.getTotal();
             amount += lst.getAmount();
         }
+
         tvSubtotal.setText(subtotal + "đ");
 
-        totalCart = subtotal + 30000 - 10000;
+        if (subtotal > 0){
+            Fee = 30000;
+            vouchers = -10000;
+            tvFee.setText(Fee + "đ");
+            tvPriceVoucher.setText(vouchers + "đ");
+        }else {
+            Fee = 0;
+            vouchers = 0;
+            tvFee.setText(Fee +"đ");
+            tvPriceVoucher.setText(vouchers + "đ");
+        }
+        totalCart = subtotal + Fee + vouchers;
         tvTotalCart.setText(totalCart + "đ");
+
     }
     public String getCalender(){
         DateFormat dfDate = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
@@ -185,64 +205,67 @@ public class CartActivity extends AppCompatActivity {
     }
 
     public void addToBill(){
-        Map<String, Object> user = new HashMap<>();
-        user.put("Id_User", IdUser);
-        user.put("Time", getCalender());
-        user.put("Total", totalCart);
-        user.put("Amount", amount);
+        if (totalCart > 0){
+            Map<String, Object> user = new HashMap<>();
+            user.put("Id_User", IdUser);
+            user.put("Time", getCalender());
+            user.put("Total", totalCart);
+            user.put("Amount", amount);
 
-        db.collection("Bills")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
+            db.collection("Bills")
+                    .add(user)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
 //                        finish();
-                        System.out.println("Thêm Bills thành công");
+                            System.out.println("Thêm Bills thành công");
 
-                        String idBills = documentReference.getId();
-                        for (Cart lst: listCart) {
-                            Map<String, Object> user = new HashMap<>();
-                            user.put("Id_Bill", idBills);
-                            user.put("Id_Product", lst.getId_Product());
-                            user.put("Quantity", lst.getAmount());
-                            user.put("Amount", lst.getTotal());
+                            String idBills = documentReference.getId();
+                            for (Cart lst: listCart) {
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("Id_Bill", idBills);
+                                user.put("Id_Product", lst.getId_Product());
+                                user.put("Quantity", lst.getAmount());
+                                user.put("Amount", lst.getTotal());
 
-                            db.collection("DetailBill")
-                                    .add(user)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                        @Override
-                                        public void onSuccess(DocumentReference documentReference) {
+                                db.collection("DetailBill")
+                                        .add(user)
+                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                            @Override
+                                            public void onSuccess(DocumentReference documentReference) {
 
-                                            System.out.println("Successful Insert");
+                                                System.out.println("Successful Insert");
 
-                                            db.collection("Cart")
-                                                    .document(lst.getId())
-                                                    .delete()
-                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void unused) {
-                                                            Toast.makeText(CartActivity.this, "Delete Cart Successful", Toast.LENGTH_SHORT).show();
-                                                            getDataProduct();
-                                                        }
-                                                    });
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            System.out.println("Lỗi thêm DetailBills");
-                                        }
-                                    });
+                                                db.collection("Cart")
+                                                        .document(lst.getId())
+                                                        .delete()
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void unused) {
+                                                                getDataProduct();
+                                                            }
+                                                        });
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                System.out.println("Lỗi thêm DetailBills");
+                                            }
+                                        });
+                            }
+                            finish();
                         }
-                        finish();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        System.out.println("Lỗi thêm Bills");
-                    }
-                });
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println("Lỗi thêm Bills");
+                        }
+                    });
+        }else {
+            Toast.makeText(this, "No Product", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void FillData() {

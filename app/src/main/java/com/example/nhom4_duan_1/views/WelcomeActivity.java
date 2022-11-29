@@ -3,14 +3,18 @@ package com.example.nhom4_duan_1.views;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.nhom4_duan_1.MainActivity;
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.models.UserOnline;
+import com.example.nhom4_duan_1.models.Users;
 import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,13 +30,84 @@ public class WelcomeActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ArrayList<UserOnline> list;
+
+    public static final String MyPREFERENCES = "MyPrefs";
+    public static final String ID = "idKey";
+    public static final String LOGIN = "login";
+    SharedPreferences sharedpreferences;
+
+    String id, login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        list = new ArrayList<>();
-        getUserOnline();
 
+        sharedpreferences = getSharedPreferences(MyPREFERENCES,MODE_PRIVATE);
+        id = sharedpreferences.getString(ID,"");
+        login = sharedpreferences.getString(LOGIN,"");
+
+        System.out.println("id : " + id +"---- login" + login);
+        Toast.makeText(this, "id : " + id +"---- login" + login, Toast.LENGTH_SHORT).show();
+
+        if (!id.isEmpty() && !login.isEmpty()){
+            getUser();
+        }
+        else {
+            CountDownTimer timer = new CountDownTimer(3000,3000) {
+                @Override
+                public void onTick(long l) {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    Intent intent = new Intent(WelcomeActivity.this, HiActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }.start();
+        }
+
+//        list = new ArrayList<>();
+//        getUserOnline();
+
+    }
+
+    public void loadData(){
+    }
+
+    public void getUser(){
+        db.collection("Users")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                if (document.getId().equals(id)){
+                                    CountDownTimer timer = new CountDownTimer(3000,3000) {
+                                        @Override
+                                        public void onTick(long l) {
+                                        }
+
+                                        @Override
+                                        public void onFinish() {
+                                            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                                            intent.putExtra("Id",id);
+                                            intent.putExtra("Login",login);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    }.start();
+                                    break;
+                                }
+                            }
+                        } else {
+                            Log.w(">>>TAG", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
     }
 
     public void getUserOnline(){

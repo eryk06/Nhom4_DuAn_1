@@ -3,8 +3,11 @@ package com.example.nhom4_duan_1.views;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,10 +15,15 @@ import android.widget.TextView;
 
 import com.example.nhom4_duan_1.MainActivity;
 import com.example.nhom4_duan_1.R;
+import com.example.nhom4_duan_1.models.Users;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,16 +33,22 @@ public class LoginEmailActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText edtNameGG,edtPhoneGG, edtAddressGG;
     TextView tvLoginOkk;
-    String Pass, Login;
+    String Pass;
+
+    public static final String MyPREFERENCES = "MyPrefs";
+    public static final String ID = "idKey";
+    public static final String LOGIN = "login";
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_email);
 
+        sharedpreferences = getSharedPreferences(MyPREFERENCES,MODE_PRIVATE);
+
         Intent intent = getIntent();
         Pass = intent.getStringExtra("Pass");
-        Login = intent.getStringExtra("Login");
 
         edtNameGG = findViewById(R.id.edtNameGG);
         edtPhoneGG = findViewById(R.id.edtPhoneGG);
@@ -54,6 +68,13 @@ public class LoginEmailActivity extends AppCompatActivity {
         });
     }
 
+    private void saveData(String id, String Login) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString(ID, id);
+        editor.putString(LOGIN,Login);
+        editor.commit();
+    }
+
     public void addUser(String name, String phone, String address){
         Map<String, Object> user = new HashMap<>();
         user.put("Name", name);
@@ -68,12 +89,43 @@ public class LoginEmailActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         addUserOnline(documentReference.getId());
+                        getUser(documentReference.getId());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         System.out.println("Lỗi thêm User");
+                    }
+                });
+    }
+
+    public void getUser(String id){
+        db.collection("Users")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Map<String, Object> item = document.getData();
+                                Users user = new Users();
+                                if (document.getId().equals(id)){
+                                    user.setId(document.getId());
+                                    user.setName(item.get("Name").toString());
+                                    user.setImage(item.get("Image").toString());
+                                    user.setPass(item.get("Pass").toString());
+                                    user.setPhone(item.get("Phone").toString());
+                                    user.setAddress(item.get("Address").toString());
+                                    saveData(user.getId(),"email");
+                                    System.out.println("Day la User " + user );
+                                    System.out.println(user);
+                                    break;
+                                }
+                            }
+                        } else {
+                            Log.w(">>>TAG", "Error getting documents.", task.getException());
+                        }
                     }
                 });
     }

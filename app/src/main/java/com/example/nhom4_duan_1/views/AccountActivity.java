@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -53,10 +54,15 @@ public class AccountActivity extends AppCompatActivity {
 
     GoogleSignInClient googleSignInClient;
 
+    public static final String MyPREFERENCES = "MyPrefs";
+    SharedPreferences sharedpreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+
+        sharedpreferences = getSharedPreferences(MyPREFERENCES,MODE_PRIVATE);
 
         Intent intent = getIntent();
         IdUser = intent.getStringExtra("Id");
@@ -83,63 +89,22 @@ public class AccountActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Login.equals("normal")){
-                    db.collection("UserOnline")
-                            .whereEqualTo("Id_User", IdUser)
-                            .get()
-                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        for (QueryDocumentSnapshot document : task.getResult()) {
-                                            db.collection("UserOnline")
-                                                    .document(document.getId())
-                                                    .delete()
-                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void unused) {
-                                                            Toast.makeText(AccountActivity.this, "Successful Logout", Toast.LENGTH_SHORT).show();
-                                                            Intent intent1 = new Intent(AccountActivity.this, WelcomeActivity.class);
-                                                            startActivity(intent1);
-                                                            finish();
-                                                        }
-                                                    });
-                                        }
-                                    } else {
 
-                                    }
-                                }
-                            });
-
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.clear();
+                editor.commit();
+                if (Login.equals("normal")){
+                    Toast.makeText(AccountActivity.this, "Logout Successful", Toast.LENGTH_SHORT).show();
+                    onLogout();
+                    finish();
                 }
                 if (Login.equals("email")){
                     googleSignInClient.signOut().addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            db.collection("UserOnline")
-                                    .whereEqualTo("Id_User", IdUser)
-                                    .get()
-                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                            if (task.isSuccessful()) {
-                                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                                    db.collection("UserOnline")
-                                                            .document(document.getId())
-                                                            .delete()
-                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                @Override
-                                                                public void onSuccess(Void unused) {
-                                                                    Intent intent1 = new Intent(AccountActivity.this, WelcomeActivity.class);
-                                                                    startActivity(intent1);
-                                                                    finish();
-                                                                }
-                                                            });
-                                                }
-                                            } else {
-                                            }
-                                        }
-                                    });
+                            Toast.makeText(AccountActivity.this, "Logout Email Successful", Toast.LENGTH_SHORT).show();
+                            onLogout();
+                            finish();
                         }
                     });
                 }
@@ -175,6 +140,11 @@ public class AccountActivity extends AppCompatActivity {
                 System.out.println(ciPic.getDrawingCache());
             }
         }
+    }
+
+    public void onLogout(){
+        Intent intent = new Intent(AccountActivity.this, WelcomeActivity.class);
+        startActivity(intent);
     }
 
     public void upLoadImagetoFireBase(Bitmap bitmap){

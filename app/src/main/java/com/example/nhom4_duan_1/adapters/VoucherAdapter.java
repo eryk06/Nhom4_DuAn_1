@@ -36,7 +36,6 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvName.setText(list.get(position).getName());
-
     }
 
     @Override
