@@ -194,6 +194,21 @@ public class CartActivity extends AppCompatActivity {
             vouchers = 0;
             tvFee.setText(Fee +"đ");
             tvPriceVoucher.setText(vouchers + "đ");
+            setContentView(R.layout.activity_cart_without_products);
+            ImageView ivBackOderStart = findViewById(R.id.ivBackOderStart);
+            ivBackOderStart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+            Button btnStarShoping = findViewById(R.id.btnStarShoping);
+            btnStarShoping.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
         }
         totalCart = subtotal + Fee + vouchers;
         tvTotalCart.setText(totalCart + "đ");
