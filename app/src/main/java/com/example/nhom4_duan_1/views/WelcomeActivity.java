@@ -48,7 +48,7 @@ public class WelcomeActivity extends AppCompatActivity {
         login = sharedpreferences.getString(LOGIN,"");
 
         System.out.println("id : " + id +"---- login" + login);
-        Toast.makeText(this, "id : " + id +"---- login" + login, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "id : " + id +"---- login" + login, Toast.LENGTH_SHORT).show();
 
         if (!id.isEmpty() && !login.isEmpty()){
             getUser();

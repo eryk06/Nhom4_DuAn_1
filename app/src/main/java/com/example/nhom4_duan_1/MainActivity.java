@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         IdUser = intent.getStringExtra("Id");
         Login = intent.getStringExtra("Login");
-        System.out.println("Login : " + Login);
+        System.out.println("Main: Login : " + Login + "ID: " + IdUser);
 
         list = new ArrayList<>();
         user = new Users();
@@ -293,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerProduct = (RecyclerView) findViewById(R.id.recyclerMain);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerProduct.setLayoutManager(linearLayoutManager);
-        ProductAdapter adapter = new ProductAdapter( MainActivity.this, list);
+        ProductAdapter adapter = new ProductAdapter( MainActivity.this, list, IdUser);
         recyclerProduct.setAdapter(adapter);
     }
 }

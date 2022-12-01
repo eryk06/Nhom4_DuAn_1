@@ -24,10 +24,17 @@ import java.util.ArrayList;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>{
     private Context context;
     private ArrayList<Products> list;
+    private String IdUser;
 
     public ProductAdapter(Context context, ArrayList<Products> list) {
         this.context = context;
         this.list = list;
+    }
+
+    public ProductAdapter(Context context, ArrayList<Products> list, String idUser) {
+        this.context = context;
+        this.list = list;
+        IdUser = idUser;
     }
 
     @NonNull
@@ -67,6 +74,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         intent.putExtra("price",products.getPrice());
         intent.putExtra("image",products.getImage());
         intent.putExtra("type",products.getType());
+        intent.putExtra("idUser",IdUser);
         context.startActivity(intent);
         System.out.println(products);
     }

@@ -153,8 +153,28 @@ public class CartActivity extends AppCompatActivity {
                 }
             }
         }
-        System.out.println( "halo " +listTemp.size());
-        FillData();
+        if (listTemp.size() != 0){
+            System.out.println( "halo Data Cart " +listTemp.size());
+            FillData();
+        }
+        else {
+            setContentView(R.layout.activity_cart_without_products);
+            ImageView ivBackOderStart = findViewById(R.id.ivBackOderStart);
+            ivBackOderStart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+            Button btnStarShoping = findViewById(R.id.btnStarShoping);
+            btnStarShoping.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
+
     }
 
     public void deleteCart(String id){
@@ -174,14 +194,44 @@ public class CartActivity extends AppCompatActivity {
                 });
     }
 
+    public void updateCartChangAmount(String id, String idPro, int amt){
+        for (Products lst: listPro) {
+            if (lst.getId().equals(idPro)){
+                Map<String, Object> user = new HashMap<>();
+                user.put("Id_Product", idPro);
+                user.put("Amount", amt);
+                user.put("Total", lst.getPrice() * amt);
+                System.out.println("Amt: " +amt);
+                System.out.println("Total: " +lst.getPrice() * amt);
+
+                // Add a new document with a generated ID
+                db.collection("Cart")
+                        .document(id)
+                        .update(user)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                System.out.println("Sửa thành công");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                System.out.println("Sửa không thành công");
+                            }
+                        });
+            }
+        }
+        getDataProduct();
+    }
 
 
     public void getPriceCart(){
+        subtotal =0;
         for (Cart lst: listCart) {
             subtotal += lst.getTotal();
             amount += lst.getAmount();
         }
-
         tvSubtotal.setText(subtotal + "đ");
 
         if (subtotal > 0){
@@ -189,11 +239,9 @@ public class CartActivity extends AppCompatActivity {
             vouchers = -10000;
             tvFee.setText(Fee + "đ");
             tvPriceVoucher.setText(vouchers + "đ");
+            totalCart = subtotal + Fee + vouchers;
+            tvTotalCart.setText(totalCart + "đ");
         }else {
-            Fee = 0;
-            vouchers = 0;
-            tvFee.setText(Fee +"đ");
-            tvPriceVoucher.setText(vouchers + "đ");
             setContentView(R.layout.activity_cart_without_products);
             ImageView ivBackOderStart = findViewById(R.id.ivBackOderStart);
             ivBackOderStart.setOnClickListener(new View.OnClickListener() {
@@ -210,8 +258,6 @@ public class CartActivity extends AppCompatActivity {
                 }
             });
         }
-        totalCart = subtotal + Fee + vouchers;
-        tvTotalCart.setText(totalCart + "đ");
 
     }
     public String getCalender(){

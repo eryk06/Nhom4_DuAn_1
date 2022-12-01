@@ -35,9 +35,10 @@ public class DetailProductActivity extends AppCompatActivity {
     TextView tvNameDetailProduct, tvMinus, tvPlus, tvTotal, tvAddToCart;
     EditText edtAmount;
     Products products;
-    int amount = 0;
+    int amount = 1;
     double total = 0;
     int check = 0;
+    String IdUser;
     Cart cart;
     ArrayList<Cart> list;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -56,11 +57,13 @@ public class DetailProductActivity extends AppCompatActivity {
         tvTotal = findViewById(R.id.tvTotal);
         tvAddToCart = findViewById(R.id.tvAddToCart);
         edtAmount = findViewById(R.id.edtAmount);
+        edtAmount.setText("1");
 
         list = new ArrayList<>();
 
         Intent intent = getIntent();
         products = new Products();
+        IdUser = intent.getStringExtra("idUser");
         products.setId(intent.getStringExtra("id"));
         products.setName(intent.getStringExtra("name"));
         products.setPrice(intent.getDoubleExtra("price", 0));
@@ -89,7 +92,7 @@ public class DetailProductActivity extends AppCompatActivity {
         tvMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (amount >= 1) {
+                if (amount > 1) {
                     amount -= 1;
                     edtAmount.setText(amount + "");
 
@@ -127,19 +130,27 @@ public class DetailProductActivity extends AppCompatActivity {
 
     public void addToCart() {
         if (amount > 0) {
-            for (Cart lst: list) {
+            if (!IdUser.equals("0")){
+                for (Cart lst: list) {
 //                if (products.getId().equals(lst.getId_Product())){
-                if (lst.getId_Product().equals(products.getId())){
-                    check = -1;
-                    cart = lst;
-                    break;
+                    if (lst.getId_Product().equals(products.getId())){
+                        check = -1;
+                        cart = lst;
+                        break;
+                    }
+                }
+                if (check == -1){
+                    updateCart();
+                }else {
+                    addCart();
                 }
             }
-            if (check == -1){
-                updateCart();
-            }else {
-                addCart();
+            else {
+                Intent intent = new Intent(DetailProductActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
+
         }
 
     }

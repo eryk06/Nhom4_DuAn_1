@@ -17,6 +17,7 @@ import com.example.nhom4_duan_1.models.Bills;
 import com.example.nhom4_duan_1.models.Cart;
 import com.example.nhom4_duan_1.models.Products;
 import com.example.nhom4_duan_1.views.CartActivity;
+import com.example.nhom4_duan_1.views.DetailProductActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
@@ -25,7 +26,6 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
     private Context context;
     private ArrayList<Cart> list;
     ArrayList<Products> listTemp ;
@@ -68,6 +68,46 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
                 activity.deleteCart(list.get(holder.getAdapterPosition()).getId());
             }
         });
+
+        holder.tvMinusCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = list.get(holder.getAdapterPosition()).getId();
+                int amt = list.get(holder.getAdapterPosition()).getAmount();
+                String idPro = list.get(holder.getAdapterPosition()).getId_Product();
+                System.out.println("id minus cart : " + id);
+                if (amt >= 1) {
+                    amt -= 1;
+                    ChangeAmount(id, idPro, amt);
+                }
+                if (amt == 0){
+                    DeleteCart(id);
+                }
+            }
+        });
+
+        holder.tvPlusCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = list.get(holder.getAdapterPosition()).getId();
+                int amt = list.get(holder.getAdapterPosition()).getAmount();
+                String idPro = list.get(holder.getAdapterPosition()).getId_Product();
+                System.out.println("id plus cart : " + id);
+                amt += 1;
+                ChangeAmount(id, idPro, amt);
+
+            }
+        });
+    }
+
+    public void DeleteCart(String id){
+        activity = (CartActivity) context;
+        activity.deleteCart(id);
+    }
+
+    public void ChangeAmount(String id, String idPro, int amt){
+        activity = (CartActivity) context;
+        activity.updateCartChangAmount(id,idPro,amt);
     }
 
     public Products getProduct(int po){
@@ -86,13 +126,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView ivProductCart, ivDeleteCart;
-        TextView tvNameProductCart, tvNoteCart;
+        TextView tvNameProductCart, tvNoteCart, tvMinusCart, tvPlusCart;
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             ivProductCart = itemView.findViewById(R.id.ivProductCart);
             ivDeleteCart = itemView.findViewById(R.id.ivDeleteCart);
             tvNameProductCart = itemView.findViewById(R.id.tvNameProductCart);
             tvNoteCart = itemView.findViewById(R.id.tvNoteCart);
+            tvMinusCart = itemView.findViewById(R.id.tvMinusCart);
+            tvPlusCart = itemView.findViewById(R.id.tvPlusCart);
         }
     }
 }
