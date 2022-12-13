@@ -95,7 +95,6 @@ public class DetailProductActivity extends AppCompatActivity {
                 if (amount > 1) {
                     amount -= 1;
                     edtAmount.setText(amount + "");
-
                     total = products.getPrice() * amount;
                     tvTotal.setText(total + "");
                 }
@@ -156,10 +155,11 @@ public class DetailProductActivity extends AppCompatActivity {
     }
 
     public void addCart(){
+        System.out.println("123123:  " + total );
         Map<String, Object> user = new HashMap<>();
         user.put("Id_Product", products.getId());
         user.put("Amount", amount);
-        user.put("Total", total);
+        user.put("Total", products.getPrice() * amount);
 
         db.collection("Cart")
                 .add(user)

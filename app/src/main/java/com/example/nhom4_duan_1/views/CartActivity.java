@@ -233,7 +233,7 @@ public class CartActivity extends AppCompatActivity {
             amount += lst.getAmount();
         }
         tvSubtotal.setText(subtotal + "đ");
-
+        System.out.println("Subtotal: " + subtotal);
         if (subtotal > 0){
             Fee = 30000;
             vouchers = -10000;
