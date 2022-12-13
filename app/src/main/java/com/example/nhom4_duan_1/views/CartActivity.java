@@ -315,6 +315,7 @@ public class CartActivity extends AppCompatActivity {
                                             }
                                         });
                             }
+                            Toast.makeText(CartActivity.this, "Buy Successful", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     })
