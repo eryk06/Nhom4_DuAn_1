@@ -165,6 +165,11 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         if (check == 1){
                             saveData(userCheck.getId(),"email");
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra("Id",userCheck.getId());
+                            intent.putExtra("Login","email");
+                            startActivity(intent);
+                            finish();
                         }
                         else {
                             Intent intent = new Intent(LoginActivity.this, LoginEmailActivity.class);

@@ -116,7 +116,6 @@ public class LoginEmailActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        addUserOnline(documentReference.getId());
                         getUser(documentReference.getId());
                     }
                 })
@@ -136,49 +135,19 @@ public class LoginEmailActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Map<String, Object> item = document.getData();
-                                Users user = new Users();
                                 if (document.getId().equals(id)){
-                                    user.setId(document.getId());
-                                    user.setName(item.get("Name").toString());
-                                    user.setImage(item.get("Image").toString());
-                                    user.setPass(item.get("Pass").toString());
-                                    user.setPhone(item.get("Phone").toString());
-                                    user.setAddress(item.get("Address").toString());
-                                    saveData(user.getId(),"email");
-                                    System.out.println("Day la User " + user );
-                                    System.out.println(user);
+                                    saveData(id,"email");
+                                    Intent intent = new Intent(LoginEmailActivity.this, MainActivity.class);
+                                    intent.putExtra("Id",id);
+                                    intent.putExtra("Login","email");
+                                    startActivity(intent);
+                                    finish();
                                     break;
                                 }
                             }
                         } else {
                             Log.w(">>>TAG", "Error getting documents.", task.getException());
                         }
-                    }
-                });
-    }
-
-    public void addUserOnline(String id){
-        Map<String, Object> user = new HashMap<>();
-        user.put("Id_User", id);
-
-        db.collection("UserOnline")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Intent intent = new Intent(LoginEmailActivity.this, MainActivity.class);
-                        intent.putExtra("Id",id);
-                        intent.putExtra("Login","email");
-                        startActivity(intent);
-                        finish();
-                        System.out.println("Thêm UserOnline thành công");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        System.out.println("Lỗi thêm UserOnline");
                     }
                 });
     }
