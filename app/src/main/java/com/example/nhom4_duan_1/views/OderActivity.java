@@ -24,12 +24,16 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 
 public class OderActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView recyclerOder;
     String IdUser;
+    ArrayList<Bills> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,7 @@ public class OderActivity extends AppCompatActivity {
         IdUser = intent.getStringExtra("Id");
 
 
+        list = new ArrayList<>();
         ImageView ivBackOder = findViewById(R.id.ivBackOder);
         ivBackOder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +56,7 @@ public class OderActivity extends AppCompatActivity {
     }
 
     public void getData(){
-        ArrayList<Bills> list = new ArrayList<>();
+        list.clear();
         db.collection("Bills")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -73,12 +78,24 @@ public class OderActivity extends AppCompatActivity {
                                     System.out.println(i + " ---" + list.get(list.size()-1));
                                 }
                             }
-                            FillData(list);
+                            Sort();
                         } else {
                             Log.w(">>>TAG", "Error getting documents.", task.getException());
                         }
                     }
                 });
+    }
+
+    public void Sort(){
+        if (list.size() > 0) {
+            Collections.sort(list, new Comparator<Bills>() {
+                @Override
+                public int compare(Bills o1, Bills o2) {
+                    return o2.getTime().compareTo(o1.getTime());
+                }
+            });
+            FillData(list);
+        }
     }
 
     public void FillData(ArrayList<Bills> list){

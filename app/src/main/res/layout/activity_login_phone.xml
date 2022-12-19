@@ -18,7 +18,7 @@
             android:background="@drawable/btn_hihi"/>
 
         <ImageView
-            android:id="@+id/ivBackOder"
+            android:id="@+id/ivBackLoginPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-45dp"
@@ -181,23 +181,35 @@
         android:layout_marginBottom="16dp"
         android:gravity="bottom|center">
 
-        <TextView
-            android:id="@+id/tvLoginNormal"
-            android:layout_width="128dp"
-            android:layout_height="45dp"
-            android:background="#90F2F2"
-            android:gravity="center"
-            android:paddingLeft="-25dp"
-            android:text="Ok"
-            android:textColor="#1375E9"
-            android:textSize="26dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-40dp"
-            android:layout_marginStart="30dp"
-            android:src="@drawable/next" />
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/lnLoginNormal"
+                android:layout_width="128dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="#90F2F2"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:text="Ok"
+                    android:textColor="#1375E9"
+                    android:textSize="26dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

@@ -34,7 +34,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UsersActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    LinearLayout llMO, llVouchers, llPM, llTP;
+    LinearLayout llMO, llPM, llTP;
     ImageView ivBackUser;
     CircleImageView ciPic;
     TextView tvNameUser, tvPhoneNumber, tvLogin;
@@ -55,7 +55,6 @@ public class UsersActivity extends AppCompatActivity {
         user = new Users();
 
         llMO = (LinearLayout) findViewById(R.id.llMO);
-        llVouchers = (LinearLayout) findViewById(R.id.llVouchers);
         llPM = (LinearLayout) findViewById(R.id.llPM);
         llTP = (LinearLayout) findViewById(R.id.llTP);
 
@@ -86,7 +85,7 @@ public class UsersActivity extends AppCompatActivity {
         linearUserClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (IdUser.equals("0")== false){
+                if (!IdUser.equals("0")){
                     Intent intent = new Intent(UsersActivity.this, AccountActivity.class);
                     intent.putExtra("Id",IdUser);
                     intent.putExtra("Login",Login);
@@ -118,17 +117,16 @@ public class UsersActivity extends AppCompatActivity {
         llMO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UsersActivity.this, OderActivity.class);
-                intent.putExtra("Id",IdUser);
-                startActivity(intent);
-            }
-        });
+                if (IdUser.equals("0")){
+                    Intent intent = new Intent(UsersActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(UsersActivity.this, OderActivity.class);
+                    intent.putExtra("Id",IdUser);
+                    startActivity(intent);
+                }
 
-        llVouchers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UsersActivity.this, VoucherActivity.class);
-                startActivity(intent);
             }
         });
 

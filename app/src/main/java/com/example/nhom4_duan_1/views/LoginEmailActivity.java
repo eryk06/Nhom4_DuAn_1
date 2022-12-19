@@ -11,11 +11,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nhom4_duan_1.MainActivity;
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.models.Users;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,8 +38,10 @@ public class LoginEmailActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText edtNameGG,edtPhoneGG, edtAddressGG;
-    TextView tvLoginOkk;
+    LinearLayout lnLoginEmail;
+    ImageView ivBackLoginEmail;
     String Pass;
+    GoogleSignInClient googleSignInClient;
 
     public static final String MyPREFERENCES = "MyPrefs";
     public static final String ID = "idKey";
@@ -53,9 +61,29 @@ public class LoginEmailActivity extends AppCompatActivity {
         edtNameGG = findViewById(R.id.edtNameGG);
         edtPhoneGG = findViewById(R.id.edtPhoneGG);
         edtAddressGG = findViewById(R.id.edtAddressGG);
+        ivBackLoginEmail = findViewById(R.id.ivBackLoginEmail);
 
-        tvLoginOkk = findViewById(R.id.tvLoginOkk);
-        tvLoginOkk.setOnClickListener(new View.OnClickListener() {
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(
+                GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(LoginEmailActivity.this, googleSignInOptions);
+
+        ivBackLoginEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                googleSignInClient.signOut().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        finish();
+                    }
+                });
+            }
+        });
+
+        lnLoginEmail = findViewById(R.id.lnLoginEmail);
+        lnLoginEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = edtNameGG.getText().toString().trim();

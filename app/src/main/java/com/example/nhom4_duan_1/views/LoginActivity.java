@@ -7,6 +7,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -117,11 +119,22 @@ public class LoginActivity extends AppCompatActivity {
                         finish();
                     }
                     else {
-                        Intent intent = new Intent(LoginActivity.this, LoginPhoneActivity.class);
-                        intent.putExtra("Phone", sdt);
-                        intent.putExtra("Login","normal");
-                        startActivity(intent);
-                        finish();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                        builder.setMessage("This account currently does not exist, would you like to create a new account?")
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        Intent intent = new Intent(LoginActivity.this, LoginPhoneActivity.class);
+                                        intent.putExtra("Phone", sdt);
+                                        intent.putExtra("Login","normal");
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                })
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        finish();
+                                    }
+                                }).create().show();
                     }
                 }
                 else {
@@ -151,7 +164,6 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                         if (check == 1){
-                            addUserOnline(userCheck.getId());
                             saveData(userCheck.getId(),"email");
                         }
                         else {
@@ -173,31 +185,6 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString(ID, id);
         editor.putString(LOGIN,Login);
         editor.commit();
-    }
-
-    public void addUserOnline(String id){
-        Map<String, Object> user = new HashMap<>();
-        user.put("Id_User", id);
-
-        db.collection("UserOnline")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("Id",id);
-                        intent.putExtra("Login","email");
-                        startActivity(intent);
-                        finish();
-                        System.out.println("Thêm UserOnline thành công");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        System.out.println("Lỗi thêm UserOnline");
-                    }
-                });
     }
 
     public void getUser(){

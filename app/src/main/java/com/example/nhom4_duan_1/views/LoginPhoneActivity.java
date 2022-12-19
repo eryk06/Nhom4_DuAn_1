@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.nhom4_duan_1.MainActivity;
 import com.example.nhom4_duan_1.R;
@@ -29,7 +31,8 @@ import java.util.Map;
 public class LoginPhoneActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText edtNameNormal, edtPassNormal, edtRepassNormal, edtAddressNormal;
-    TextView tvLoginNormal;
+    LinearLayout lnLoginNormal;
+    ImageView ivBackLoginPhone;
     String Phone;
 
     public static final String MyPREFERENCES = "MyPrefs";
@@ -51,9 +54,17 @@ public class LoginPhoneActivity extends AppCompatActivity {
         edtPassNormal = findViewById(R.id.edtPassNormal);
         edtRepassNormal = findViewById(R.id.edtRepassNormal);
         edtAddressNormal = findViewById(R.id.edtAddressNormal);
+        ivBackLoginPhone = findViewById(R.id.ivBackLoginPhone);
 
-        tvLoginNormal = findViewById(R.id.tvLoginNormal);
-        tvLoginNormal.setOnClickListener(new View.OnClickListener() {
+        ivBackLoginPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        lnLoginNormal = findViewById(R.id.lnLoginNormal);
+        lnLoginNormal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = edtNameNormal.getText().toString().trim();

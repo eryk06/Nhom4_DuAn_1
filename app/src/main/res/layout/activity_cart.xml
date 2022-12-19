@@ -59,6 +59,23 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="4.5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvPaymentMethods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ Payment Methods"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_weight="3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

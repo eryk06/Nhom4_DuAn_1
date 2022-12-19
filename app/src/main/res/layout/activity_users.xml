@@ -125,29 +125,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llVouchers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/voucherhihi"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vouchers"
-            android:textSize="32sp"
-            android:textColor="#000"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="23dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/llPM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

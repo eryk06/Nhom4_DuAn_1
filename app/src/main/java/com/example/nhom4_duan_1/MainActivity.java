@@ -95,17 +95,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        CountDownTimer timer = new CountDownTimer(5000,5000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
+        if (!IdUser.equals("0") ){
+            ln5s.setVisibility(View.VISIBLE);
+            CountDownTimer timer = new CountDownTimer(5000,5000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
 
-            }
+                }
 
-            @Override
-            public void onFinish() {
-                ln5s.setVisibility(View.GONE);
-            }
-        }.start();
+                @Override
+                public void onFinish() {
+                    ln5s.setVisibility(View.GONE);
+                }
+            }.start();
+        }
+
+
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,9 +153,8 @@ public class MainActivity extends AppCompatActivity {
                 lnlnSortPriceASC.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ArrayList<Products> lst = new ArrayList<>();
-                        lst = (ArrayList<Products>) manager.onSortPrice_ASC();
-                        FillData(lst);
+                        ArrayList<Products> lst1 = (ArrayList<Products>) manager.onSortPrice_ASC();
+                        FillData(lst1);
                         alertDialog.dismiss();
                     }
                 });
@@ -158,8 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 lnlnSortPriceDESC.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ArrayList<Products> lst = new ArrayList<>();
-                        lst = (ArrayList<Products>) manager.onSortPrice_DESC();
+                        ArrayList<Products> lst = (ArrayList<Products>) manager.onSortPrice_DESC();
                         FillData(lst);
                         alertDialog.dismiss();
                     }
@@ -168,8 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 lnlnSortNameAtoZ.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ArrayList<Products> lst = new ArrayList<>();
-                        lst = (ArrayList<Products>) manager.onSortName_AtoZ();
+                        ArrayList<Products> lst = (ArrayList<Products>) manager.onSortName_AtoZ();
                         FillData(lst);
                         alertDialog.dismiss();
                     }
@@ -178,8 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 lnlnSortNameZtoA.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ArrayList<Products> lst = new ArrayList<>();
-                        lst = (ArrayList<Products>) manager.onSortName_ZtoA();
+                        ArrayList<Products> lst = (ArrayList<Products>) manager.onSortName_ZtoA();
                         FillData(lst);
                         alertDialog.dismiss();
                     }
@@ -228,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getData(){
+        list.clear();
         db.collection("Products")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

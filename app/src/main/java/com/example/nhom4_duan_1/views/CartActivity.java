@@ -1,6 +1,7 @@
 package com.example.nhom4_duan_1.views;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,15 +9,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nhom4_duan_1.MainActivity;
 import com.example.nhom4_duan_1.R;
 import com.example.nhom4_duan_1.adapters.CartAdapter;
 import com.example.nhom4_duan_1.adapters.OderAdapter;
+import com.example.nhom4_duan_1.managers.Manager;
 import com.example.nhom4_duan_1.models.Bills;
 import com.example.nhom4_duan_1.models.Cart;
 import com.example.nhom4_duan_1.models.Products;
@@ -42,15 +47,17 @@ public class CartActivity extends AppCompatActivity {
     RecyclerView recyclerCart;
     ArrayList<Products> listPro;
     ArrayList<Cart> listCart;
+    AlertDialog alertDialog;
     ArrayList<Products> listTemp;
     Button btnBuy;
-    TextView tvSubtotal,tvFee,tvPriceVoucher,tvTotalCart;
+    TextView tvSubtotal,tvFee,tvPriceVoucher,tvTotalCart,tvPaymentMethods;
     double subtotal = 0;
     double totalCart = 0;
     double Fee = 0;
     double vouchers = 0;
     String IdUser;
     int amount;
+    int pay = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +76,7 @@ public class CartActivity extends AppCompatActivity {
         tvPriceVoucher = findViewById(R.id.tvPriceVoucher);
         tvTotalCart = findViewById(R.id.tvTotalCart);
         btnBuy = findViewById(R.id.btnBuy);
+        tvPaymentMethods = findViewById(R.id.tvPaymentMethods);
 
 
         recyclerCart = (RecyclerView) findViewById(R.id.recyclerCart);
@@ -87,7 +95,54 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+        tvPaymentMethods.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getPayment();
+            }
+        });
+
         getDataProduct();
+    }
+
+    public void getPayment(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_pay, null);
+        LinearLayout lnCredit = view.findViewById(R.id.lnCredit);
+        LinearLayout lnMomo = view.findViewById(R.id.lnMomo);
+        LinearLayout lnCash = view.findViewById(R.id.lnCash);
+
+        lnCredit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvPaymentMethods.setText("Credit or debit card");
+                pay =1;
+                alertDialog.dismiss();
+            }
+        });
+
+        lnMomo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvPaymentMethods.setText("Momo E-Wallet");
+                pay =1;
+                alertDialog.dismiss();
+            }
+        });
+
+        lnCash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvPaymentMethods.setText("Cash");
+                pay =1;
+                alertDialog.dismiss();
+            }
+        });
+
+        builder.setView(view);
+        alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public void getDataCart() {
@@ -261,70 +316,74 @@ public class CartActivity extends AppCompatActivity {
 
     }
     public String getCalender(){
-        DateFormat dfDate = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+        DateFormat dfDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         return dfDate.format(Calendar.getInstance().getTime());
     }
 
     public void addToBill(){
         if (totalCart > 0){
-            Map<String, Object> user = new HashMap<>();
-            user.put("Id_User", IdUser);
-            user.put("Time", getCalender());
-            user.put("Total", totalCart);
-            user.put("Amount", amount);
+            if (pay != 0){
+                Map<String, Object> user = new HashMap<>();
+                user.put("Id_User", IdUser);
+                user.put("Time", getCalender());
+                user.put("Total", totalCart);
+                user.put("Amount", amount);
 
-            db.collection("Bills")
-                    .add(user)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-//                        finish();
-                            System.out.println("Thêm Bills thành công");
+                db.collection("Bills")
+                        .add(user)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                System.out.println("Thêm Bills thành công");
 
-                            String idBills = documentReference.getId();
-                            for (Cart lst: listCart) {
-                                Map<String, Object> user = new HashMap<>();
-                                user.put("Id_Bill", idBills);
-                                user.put("Id_Product", lst.getId_Product());
-                                user.put("Quantity", lst.getAmount());
-                                user.put("Amount", lst.getTotal());
+                                String idBills = documentReference.getId();
+                                for (Cart lst: listCart) {
+                                    Map<String, Object> user = new HashMap<>();
+                                    user.put("Id_Bill", idBills);
+                                    user.put("Id_Product", lst.getId_Product());
+                                    user.put("Quantity", lst.getAmount());
+                                    user.put("Amount", lst.getTotal());
 
-                                db.collection("DetailBill")
-                                        .add(user)
-                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                            @Override
-                                            public void onSuccess(DocumentReference documentReference) {
+                                    db.collection("DetailBill")
+                                            .add(user)
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
 
-                                                System.out.println("Successful Insert");
+                                                    System.out.println("Successful Insert");
 
-                                                db.collection("Cart")
-                                                        .document(lst.getId())
-                                                        .delete()
-                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                            @Override
-                                                            public void onSuccess(Void unused) {
-                                                                getDataProduct();
-                                                            }
-                                                        });
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                System.out.println("Lỗi thêm DetailBills");
-                                            }
-                                        });
+                                                    db.collection("Cart")
+                                                            .document(lst.getId())
+                                                            .delete()
+                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                @Override
+                                                                public void onSuccess(Void unused) {
+                                                                    getDataProduct();
+                                                                }
+                                                            });
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    System.out.println("Lỗi thêm DetailBills");
+                                                }
+                                            });
+                                }
+                                Toast.makeText(CartActivity.this, "Buy Successful", Toast.LENGTH_SHORT).show();
+                                finish();
                             }
-                            Toast.makeText(CartActivity.this, "Buy Successful", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            System.out.println("Lỗi thêm Bills");
-                        }
-                    });
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                System.out.println("Lỗi thêm Bills");
+                            }
+                        });
+            }
+            else {
+                getPayment();
+            }
         }else {
             Toast.makeText(this, "No Product", Toast.LENGTH_SHORT).show();
         }

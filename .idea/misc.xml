@@ -27,7 +27,7 @@
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_adress.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_adress_info.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_bill.xml" value="0.20416666666666666" />
-        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart.xml" value="0.18" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart.xml" value="0.17517940059096665" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart2.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_cart_without_products.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/activity_detail_product.xml" value="0.18854166666666666" />
@@ -50,6 +50,7 @@
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/custom_adapter_vouchers.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/custom_recyc_product.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/dialog_filter.xml" value="0.20416666666666666" />
+        <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/dialog_pay.xml" value="0.21614583333333334" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/dialog_success.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/include_bill.xml" value="0.20416666666666666" />
         <entry key="..\:/DuAn1/Nhom4_DuAn_1/app/src/main/res/layout/item_bill.xml" value="0.20416666666666666" />
